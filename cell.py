@@ -1,11 +1,14 @@
 #Alejandra
 
+
 class Cell:
     def __init__(self, value, row, col, screen):
         # constructor for cell class
+        # screen is a window from pycharm
         self.value = value
         self.row = row
         self.col = col
+        self.screen = screen
 
         self.selected = False
         pass
