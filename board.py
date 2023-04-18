@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from cell import Cell
 
 class Board:
     def __init__(self,width,height,screen,difficulty):
@@ -14,7 +15,7 @@ class Board:
     def draw(self): #draws the lines for the board
         #horizontal lines?
         for i in range(1, 9):
-            pygame.draw.line(self.screen)
+            pygame.draw.line(self.screen, LINE_COLOR, )
 
 
     def select(self,row,col):
