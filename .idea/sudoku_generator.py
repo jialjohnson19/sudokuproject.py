@@ -1,4 +1,6 @@
 #xiwen and amaris
+from cell import Cell
+from board import Board
 import math, random
 
 """
