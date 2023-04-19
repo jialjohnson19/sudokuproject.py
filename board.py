@@ -11,11 +11,15 @@ class Board:
         self.board = self.initialize_board()
         #self.cells ?
 
-
     def draw(self): #draws the lines for the board
         #horizontal lines?
-        for i in range(1, 9):
-            pygame.draw.line(self.screen, LINE_COLOR, )
+        for i in range(1, BOARD_ROWS):
+            pygame.draw.line(self.screen, LINE_COLOR, (0, SQUARE_SIZE * i),
+                             (WIDTH, SQUARE_SIZE * i), LINE_WIDTH)
+        # vertical lines
+        for i in range(1, BOARD_COLS):
+            pygame.draw.line(self.screen, LINE_COLOR, (SQUARE_SIZE * i,0),
+                             (SQUARE_SIZE * i, HEIGHT), LINE_WIDTH)
 
 
     def select(self,row,col):
@@ -50,3 +54,17 @@ class Board:
 
     def check_board(self):
         pass
+
+""" def draw_lines():
+    for i in range(1, BOARD_ROWS):
+        pygame.draw.line(screen,
+                         LINE_COLOR,
+                         (0, i * SQUARE_SIZE),
+                         (WIDTH, i *SQUARE_SIZE),
+                         LINE_WIDTH)
+    for i in range(1, BOARD_COLS):
+        pygame.draw.line(screen,
+                         LINE_COLOR,
+                         (SQUARE_SIZE * i, 0),
+                         (SQUARE_SIZE * i, HEIGHT),
+                         LINE_WIDTH) """
