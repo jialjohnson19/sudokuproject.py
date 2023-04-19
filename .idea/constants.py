@@ -1,3 +1,4 @@
+# constants file -- copied from tictactoe guidelines
 WIDTH = 600
 HEIGHT = 600
 LINE_WIDTH = 15
