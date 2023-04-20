@@ -1,20 +1,41 @@
 # Xiwen and Amaris
 class SudokuGenerator:
     def __init__(self, row_length, removed_cells):
-        pass
+        self.row_length = row_length
+        self.removed_cells = removed_cells
+        self.board = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+
     def get_board(self):
-        pass
+        return self.board
+
     def print_board(self):
-        pass
+        for row in self.board:
+            print(row)
 
     def valid_in_row(self, row, num):
-        pass
+        for i in range(self.row_length):
+            if self.board[row][i] == num:
+                return False
+        return True
 
     def valid_in_col(self, col, num):
-        pass
+        for i in range(self.row_length):
+            if self.board[i][col] == num:
+                return False
+        return True
 
     def valid_in_box(self, row_start, col_start, num):
-        pass
+
 
     def is_valid(self, row, col, num):
         pass
