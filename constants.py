@@ -2,6 +2,7 @@
 WIDTH = 900 #changed from 600 to 900 to make the lines and math easier
 HEIGHT = 900
 LINE_WIDTH = 5
+LINE_WIDTH_BIG = 10
 WIN_LINE_WIDTH = 15
 BOARD_ROWS = 9
 BOARD_COLS = 9

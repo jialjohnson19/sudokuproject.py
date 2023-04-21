@@ -1,6 +1,13 @@
-import pygame
+import pygame, sys
 from constants import *
 from cell import Cell
+
+pygame.init()
+pygame.display.set_caption("Sudoku")
+num_font = pygame.font.Font(None,400)
+
+screen = pygame.display.set_mode((WIDTH,HEIGHT))
+screen.fill(BG_COLOR)
 
 class Board:
     def __init__(self,width,height,screen,difficulty):
@@ -9,24 +16,82 @@ class Board:
         self.screen = screen
         self.difficult = difficulty
         self.board = self.initialize_board()
-        #self.cells ?
 
     def draw(self): #draws the lines for the board
         #horizontal lines?
-        for i in range(1, BOARD_ROWS):
-            pygame.draw.line(self.screen, LINE_COLOR, (0, SQUARE_SIZE * i),
-                             (WIDTH, SQUARE_SIZE * i), LINE_WIDTH)
-        # vertical lines
-        for i in range(1, BOARD_COLS):
-            pygame.draw.line(self.screen, LINE_COLOR, (SQUARE_SIZE * i,0),
-                             (SQUARE_SIZE * i, HEIGHT), LINE_WIDTH)
+        def draw_lines():  # i believe this function has to go in board.py but works here for now
+            for i in range(1, 3):
+                pygame.draw.line(screen,
+                                 LINE_COLOR,
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
+                                 LINE_WIDTH)
+            for i in range(3, 4):
+                pygame.draw.line(screen,
+                                 LINE_COLOR,
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
+                                 LINE_WIDTH_BIG)
+            for i in range(4, 6):
+                pygame.draw.line(screen,
+                                 LINE_COLOR,
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
+                                 LINE_WIDTH)
+            for i in range(6, 7):
+                pygame.draw.line(screen,
+                                 LINE_COLOR,
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
+                                 LINE_WIDTH_BIG)
+            for i in range(7, 9):
+                pygame.draw.line(screen,
+                                 LINE_COLOR,
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
+                                 LINE_WIDTH)
+
+                for i in range(1, 3):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH)
+                for i in range(3, 4):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH_BIG)
+                for i in range(4, 6):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH)
+                for i in range(6, 7):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH_BIG)
+                for i in range(7, 9):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH)
 
 
     def select(self,row,col):
         pass
 
+
     def click(self,x,y):
-        pass
+        if self.board[row][col] == (x,y):
+            return (x,y)
+        else:
+            return None
 
     def clear(self):
         pass
@@ -55,16 +120,18 @@ class Board:
     def check_board(self):
         pass
 
-""" def draw_lines():
-    for i in range(1, BOARD_ROWS):
-        pygame.draw.line(screen,
-                         LINE_COLOR,
-                         (0, i * SQUARE_SIZE),
-                         (WIDTH, i *SQUARE_SIZE),
-                         LINE_WIDTH)
-    for i in range(1, BOARD_COLS):
-        pygame.draw.line(screen,
-                         LINE_COLOR,
-                         (SQUARE_SIZE * i, 0),
-                         (SQUARE_SIZE * i, HEIGHT),
-                         LINE_WIDTH) """
+while True: #window always showing in screen
+    #event handler
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+             # mouse click or selection
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            x, y = event.pos
+            row = y // SQUARE_SIZE
+            col = x // SQUARE_SIZE
+
+            click(x,y)
+
+    pygame.display.update() # to display and update things on the screen
