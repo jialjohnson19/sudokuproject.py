@@ -58,5 +58,5 @@ class SudokuGenerator:
     def generate_sudoku(size, removed):
         pass
 
-#new
+#new1
 
