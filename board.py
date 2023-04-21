@@ -1,7 +1,7 @@
 import pygame, sys
 from constants import *
 from cell import Cell
-
+# new
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 screen.fill(BG_COLOR)
 
