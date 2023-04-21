@@ -65,10 +65,12 @@ class SudokuGenerator:
         pass
 
     def fill_values(self):
-        pass
+        self.fill_diagonal()
+        self.fill_remaining()
+        self.solution = [row[:] for row in self.board]
 
     def remove_cells(self):
-        pass
+
 
     def generate_sudoku(size, removed):
         pass
