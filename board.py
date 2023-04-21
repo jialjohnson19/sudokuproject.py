@@ -1,6 +1,7 @@
 import pygame, sys
 from constants import *
-#updates
+from cell import Cell
+
 class Board:
     def __init__(self,width,height,screen,difficulty):
         self.width = width
@@ -74,7 +75,7 @@ class Board:
                                      LINE_WIDTH)
 
     def select(self,row,col):
-        pass
+        return self.board[row][col]
 
     def click(self,x,y):
         if self.board[row][col] == (x,y):
@@ -85,10 +86,10 @@ class Board:
     def clear(self):
         pass
 
-    def sketch(self):
+    def sketch(self,value):
         pass
 
-    def place_numer(self,value):
+    def place_number(self,value):
         pass
 
     def reset_to_original(self):
@@ -97,39 +98,18 @@ class Board:
     def is_full(self):
         for i in range (self.rows):
             for j in range (self.cols):
-                if self.board[i][j] == "-":
+                if self.board[i][j] == 0:
                     return False
+        return True
 
     def update_board(self):
         pass
 
     def find_empty(self):
         #should find empty cell and return row and col tuple
-        if self.board[row][col] == "-":
+        if self.board[row][col] == 0:
             return (row,col)
 
     def check_board(self):
-        pass
+        # if value in each row or column does not equal another value then win
 
-pygame.init()
-pygame.display.set_caption("Sudoku")
-num_font = pygame.font.Font(None,400)
-
-screen = pygame.display.set_mode((WIDTH,HEIGHT))
-screen.fill(BG_COLOR)
-board = Board.draw(screen)
-
-while True: #window always showing in screen
-    #event handler
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-             # mouse click or selection
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            x, y = event.pos
-            row = y // SQUARE_SIZE
-            col = x // SQUARE_SIZE
-
-
-    pygame.display.update() # to display and update things on the screen
