@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90ce9384-6ac9-456a-ab8a-5b4db3bf630e" name="Changes" comment="In main - import board function working for screen&#10;&#10;In board - updated methods select" />
+    <list default="true" id="90ce9384-6ac9-456a-ab8a-5b4db3bf630e" name="Changes" comment="In main - import board function working for screen&#10;&#10;In board - updated methods select&#10;In main - adjusted">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682101030175</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="In main - import board function working for screen&#10;&#10;In board - updated methods select&#10;In main - adjusted">
+      <created>1682101083270</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682101083270</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,10 +199,22 @@
     <MESSAGE value="sudokugenerator updates by xiwen" />
     <MESSAGE value="In main - import board function working for screen" />
     <MESSAGE value="In main - import board function working for screen&#10;&#10;In board - updated methods select" />
-    <option name="LAST_COMMIT_MESSAGE" value="In main - import board function working for screen&#10;&#10;In board - updated methods select" />
+    <MESSAGE value="In main - import board function working for screen&#10;&#10;In board - updated methods select&#10;In main - adjusted" />
+    <option name="LAST_COMMIT_MESSAGE" value="In main - import board function working for screen&#10;&#10;In board - updated methods select&#10;In main - adjusted" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/board.py</url>
+          <line>73</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sudokuproject_py$board.coverage" NAME="board Coverage Results" MODIFIED="1682097323324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/sudokuproject_py$main.coverage" NAME="main Coverage Results" MODIFIED="1682099363828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sudokuproject_py$main.coverage" NAME="main Coverage Results" MODIFIED="1682103220435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

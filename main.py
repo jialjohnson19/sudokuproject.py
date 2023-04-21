@@ -11,6 +11,8 @@ screen = pygame.display.set_mode((WIDTH,HEIGHT))
 screen.fill(BG_COLOR)
 board = Board.draw(screen)
 
+Board.find_empty(screen)
+
 while True: #window always showing in screen
     #event handler
     for event in pygame.event.get():
@@ -19,12 +21,16 @@ while True: #window always showing in screen
             sys.exit()
              # mouse click or selection
         if event.type == pygame.MOUSEBUTTONDOWN:
-            x, y = event.pos
-            row = y // SQUARE_SIZE
-            col = x // SQUARE_SIZE
-
-        if is_full(screen) == True:
+            Board.click(x, y) # needs adjusting
+            #if Board.available_cell(screen,board,row,col):
+                # Board.select(board,row,col)
+                #Cell.draw(value)
+                #pass
+        if event.type == pygame.K_KP_ENTER:
             pass
+
+
+
 
 
 
