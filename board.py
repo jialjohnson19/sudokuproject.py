@@ -1,139 +1,136 @@
 import pygame, sys
 from constants import *
-
-
-# updates
+from cell import Cell
+# new
+screen = pygame.display.set_mode((WIDTH,HEIGHT))
+screen.fill(BG_COLOR)
 
 class Board:
-    def __init__(self, width, height, screen, difficulty):
+    def __init__(self,width,height,screen,difficulty):
         self.width = width
         self.height = height
         self.screen = screen
         self.difficult = difficulty
         self.board = self.initialize_board()
 
-    def draw(self):  # draws the lines for the board
-        # horizontal lines?
-        for i in range(1, 3):
-            pygame.draw.line(screen,
-                             LINE_COLOR,
-                             (0, i * SQUARE_SIZE),
-                             (WIDTH, i * SQUARE_SIZE),
-                             LINE_WIDTH)
-        for i in range(3, 4):
-            pygame.draw.line(screen,
-                             LINE_COLOR,
-                             (0, i * SQUARE_SIZE),
-                             (WIDTH, i * SQUARE_SIZE),
-                             LINE_WIDTH_BIG)
-        for i in range(4, 6):
-            pygame.draw.line(screen,
-                             LINE_COLOR,
-                             (0, i * SQUARE_SIZE),
-                             (WIDTH, i * SQUARE_SIZE),
-                             LINE_WIDTH)
-        for i in range(6, 7):
-            pygame.draw.line(screen,
-                             LINE_COLOR,
-                             (0, i * SQUARE_SIZE),
-                             (WIDTH, i * SQUARE_SIZE),
-                             LINE_WIDTH_BIG)
-        for i in range(7, 9):
-            pygame.draw.line(screen,
-                             LINE_COLOR,
-                             (0, i * SQUARE_SIZE),
-                             (WIDTH, i * SQUARE_SIZE),
-                             LINE_WIDTH)
-
+    def draw(self): #draws the lines for the board
+        #horizontal lines?
             for i in range(1, 3):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
-                                 (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
                                  LINE_WIDTH)
             for i in range(3, 4):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
-                                 (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
                                  LINE_WIDTH_BIG)
             for i in range(4, 6):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
-                                 (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
                                  LINE_WIDTH)
             for i in range(6, 7):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
-                                 (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
                                  LINE_WIDTH_BIG)
             for i in range(7, 9):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
-                                 (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (0, i * SQUARE_SIZE),
+                                 (WIDTH, i * SQUARE_SIZE),
                                  LINE_WIDTH)
 
-    def select(self, row, col):
-        pass
+                for i in range(1, 3):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH)
+                for i in range(3, 4):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH_BIG)
+                for i in range(4, 6):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH)
+                for i in range(6, 7):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH_BIG)
+                for i in range(7, 9):
+                    pygame.draw.line(screen,
+                                     LINE_COLOR,
+                                     (SQUARE_SIZE * i, 0),
+                                     (SQUARE_SIZE * i, HEIGHT),
+                                     LINE_WIDTH)
+
+    def select(self,row,col):
+        return self.board[row][col]
 
     def click(self, x, y):
-        if self.board[row][col] == (x, y):
-            return (x, y)
-        else:
-            return None
-
+        x, y = event.pos
+        row = y // SQUARE_SIZE
+        col = x // SQUARE_SIZE
+        print(row, col)
     def clear(self):
         pass
 
-    def sketch(self):
+    def available_cell(self, board, row, col):
+        return self.board[row][col] == 0
+
+    def sketch(self,value):
         pass
 
-    def place_numer(self, value):
+    def place_number(self,value):
         pass
 
     def reset_to_original(self):
         pass
 
     def is_full(self):
-        for i in range(self.rows):
-            for j in range(self.cols):
-                if self.board[i][j] == "-":
+        for i in range (self.rows):
+            for j in range (self.cols):
+                if self.board[i][j] == 0:
                     return False
+        return True
 
     def update_board(self):
-        pass
+        self.board = [[Board](self.board[row][col], row, col, SQUARE_SIZE, SQUARE_SIZE)
+                      for col in range (self.cols) for row in range(self.rows)]
 
     def find_empty(self):
-        # should find empty cell and return row and col tuple
-        if self.board[row][col] == "-":
-            return (row, col)
+        #should find empty cell and return row and col tuple
+        for cell in board:
+            if board[row][col] == 0:
+                return (row,col)
 
     def check_board(self):
-        pass
+        for row in range(9):  #checks that each value in each row is different
+            if self.board[row][0] != self.board[row][1] != self.board[row][2] != self.board[row][3] !=self.board[row][4] != self.board[row][5] != self.board[row][6] != self.board[row][7] != self.board[row][8]:
+                return True
+        for col in range(9): #checks that each value in ach column is different
+            if self.board[col][0] != self.board[col][1] != self.board[col][2] != self.board[col][3] !=self.board[col][4] != self.board[col][5] != self.board[col][6] != self.board[col][7] != self.board[col][8]:
+                return True
+        for row in  range(9): #checks that the value are int between 1 and 9
+            if value == (1-9):
+                return True
+        for col in range(9):
+            if value == (1-9):
+                return True
+        return False
 
 
-pygame.init()
-pygame.display.set_caption("Sudoku")
-num_font = pygame.font.Font(None, 400)
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-screen.fill(BG_COLOR)
-board = Board.draw(screen)
-
-
-while True:  # window always showing in screen
-    # event handler
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-            # mouse click or selection
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            x, y = event.pos
-            row = y // SQUARE_SIZE
-            col = x // SQUARE_SIZE
-
-    pygame.display.update()  # to display and update things on the screen
