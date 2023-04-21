@@ -101,7 +101,7 @@ class Board:
         for row in range(9):
             if value != 0:
                 return 0
-        for col in range(9)
+        for col in range(9):
             if value != 0:
                 return 0
 
