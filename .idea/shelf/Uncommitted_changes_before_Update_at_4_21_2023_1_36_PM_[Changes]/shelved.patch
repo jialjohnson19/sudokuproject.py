@@ -1,0 +1,15 @@
+Index: sudokugenerator.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Xiwen and Amaris\r\n# h\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/sudokugenerator.py b/sudokugenerator.py
+--- a/sudokugenerator.py	(revision 074ba43e8155f0a20f204a1b9fdd2fbdb19c064e)
++++ b/sudokugenerator.py	(date 1682098596058)
+@@ -1,2 +1,1 @@
+-#Xiwen and Amaris
+-# h
++#Xiwen and Amaris
+\ No newline at end of file
