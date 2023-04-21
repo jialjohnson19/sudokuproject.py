@@ -98,7 +98,12 @@ class Board:
         pass
 
     def reset_to_original(self):
-        pass
+        for row in range(9):
+            if value != 0:
+                return 0
+        for col in range(9)
+            if value != 0:
+                return 0
 
     def is_full(self):
         for i in range (self.rows):
@@ -108,8 +113,8 @@ class Board:
         return True
 
     def update_board(self):
-        self.board = [[Board](self.board[row][col], row, col, SQUARE_SIZE, SQUARE_SIZE)
-                      for col in range (self.cols) for row in range(self.rows)]
+        self.board = [[Board(self.board[row][col], row, col, SQUARE_SIZE,
+                            SQUARE_SIZE) for col in range(self.cols)] for row in range(self.rows)]
 
     def find_empty(self):
         #should find empty cell and return row and col tuple

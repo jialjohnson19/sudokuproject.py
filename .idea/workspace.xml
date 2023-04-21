@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90ce9384-6ac9-456a-ab8a-5b4db3bf630e" name="Changes" comment="In main - import board function working for screen&#10;&#10;In board - updated methods select&#10;In main - adjusted">
+    <list default="true" id="90ce9384-6ac9-456a-ab8a-5b4db3bf630e" name="Changes" comment="In board - created new methods -- all may not work &#10;In main -- updated the game flow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -174,7 +174,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682101083270</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="In board - created new methods -- all may not work &#10;In main -- updated the game flow">
+      <created>1682103963404</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682103963404</updated>
+    </task>
+    <task id="LOCAL-00012" summary="In board - created new methods -- all may not work &#10;In main -- updated the game flow">
+      <created>1682104063156</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682104063156</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +214,8 @@
     <MESSAGE value="In main - import board function working for screen" />
     <MESSAGE value="In main - import board function working for screen&#10;&#10;In board - updated methods select" />
     <MESSAGE value="In main - import board function working for screen&#10;&#10;In board - updated methods select&#10;In main - adjusted" />
-    <option name="LAST_COMMIT_MESSAGE" value="In main - import board function working for screen&#10;&#10;In board - updated methods select&#10;In main - adjusted" />
+    <MESSAGE value="In board - created new methods -- all may not work &#10;In main -- updated the game flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="In board - created new methods -- all may not work &#10;In main -- updated the game flow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -215,6 +230,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sudokuproject_py$board.coverage" NAME="board Coverage Results" MODIFIED="1682097323324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/sudokuproject_py$main.coverage" NAME="main Coverage Results" MODIFIED="1682103220435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sudokuproject_py$main.coverage" NAME="main Coverage Results" MODIFIED="1682104321489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
