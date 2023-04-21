@@ -2,7 +2,6 @@
 
 import pygame
 from constants import *
-from board import Board
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
