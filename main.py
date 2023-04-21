@@ -24,6 +24,7 @@ while True: #window always showing in screen
             col = x // SQUARE_SIZE
 
         if is_full(screen) == True:
+            pass
 
 
 

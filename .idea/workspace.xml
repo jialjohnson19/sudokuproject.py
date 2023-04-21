@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90ce9384-6ac9-456a-ab8a-5b4db3bf630e" name="Changes" comment="In main - import board function working for screen">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="90ce9384-6ac9-456a-ab8a-5b4db3bf630e" name="Changes" comment="In main - import board function working for screen&#10;&#10;In board - updated methods select" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -159,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682098113861</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="In main - import board function working for screen&#10;&#10;In board - updated methods select">
+      <created>1682101030175</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682101030175</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +187,8 @@
     <MESSAGE value="updated 3" />
     <MESSAGE value="sudokugenerator updates by xiwen" />
     <MESSAGE value="In main - import board function working for screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="In main - import board function working for screen" />
+    <MESSAGE value="In main - import board function working for screen&#10;&#10;In board - updated methods select" />
+    <option name="LAST_COMMIT_MESSAGE" value="In main - import board function working for screen&#10;&#10;In board - updated methods select" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sudokuproject_py$board.coverage" NAME="board Coverage Results" MODIFIED="1682097323324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
