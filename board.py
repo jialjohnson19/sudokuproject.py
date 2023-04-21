@@ -1,13 +1,5 @@
 import pygame, sys
 from constants import *
-from cell import Cell
-
-pygame.init()
-pygame.display.set_caption("Sudoku")
-num_font = pygame.font.Font(None,400)
-
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-screen.fill(BG_COLOR)
 
 class Board:
     def __init__(self,width,height,screen,difficulty):
@@ -19,7 +11,6 @@ class Board:
 
     def draw(self): #draws the lines for the board
         #horizontal lines?
-        def draw_lines():  # i believe this function has to go in board.py but works here for now
             for i in range(1, 3):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
@@ -82,10 +73,8 @@ class Board:
                                      (SQUARE_SIZE * i, HEIGHT),
                                      LINE_WIDTH)
 
-
     def select(self,row,col):
         pass
-
 
     def click(self,x,y):
         if self.board[row][col] == (x,y):
@@ -99,7 +88,7 @@ class Board:
     def sketch(self):
         pass
 
-    def place_numer(self, value):
+    def place_numer(self,value):
         pass
 
     def reset_to_original(self):
@@ -115,10 +104,20 @@ class Board:
         pass
 
     def find_empty(self):
-        pass
+        #should find empty cell and return row and col tuple
+        if self.board[row][col] == "-":
+            return (row,col)
 
     def check_board(self):
         pass
+
+pygame.init()
+pygame.display.set_caption("Sudoku")
+num_font = pygame.font.Font(None,400)
+
+screen = pygame.display.set_mode((WIDTH,HEIGHT))
+screen.fill(BG_COLOR)
+board = Board.draw(screen)
 
 while True: #window always showing in screen
     #event handler
@@ -132,6 +131,5 @@ while True: #window always showing in screen
             row = y // SQUARE_SIZE
             col = x // SQUARE_SIZE
 
-            click(x,y)
 
     pygame.display.update() # to display and update things on the screen
