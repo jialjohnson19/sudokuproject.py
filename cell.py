@@ -1,6 +1,12 @@
-#Alejandra
+# Alejandra
 import pygame
 from constants import *
+from board import Board
+
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen.fill(BG_COLOR)
+board = Board.draw(screen)
+num_font = pygame.font.Font(None, 400)
 
 
 class Cell:
@@ -11,44 +17,50 @@ class Cell:
         self.row = row
         self.col = col
         self.screen = screen
-
         self.selected = False
-        pass
 
     def set_cell_value(self, value):
         # setter for this cell's value
-        pass
+        self.value = value
 
     def set_sketched_value(self, value):
         # setter for this cell's sketched value
-        pass
+        self.sketched_value = value
 
     def draw(self):
         # draws cell w value inside it
+        # defining the text and number values
         num_font = pygame.font.Font(None, 400)
         num_1_surf = num_font.render('1', 0, NUM_COLOR)
+        num_2_surf = num_font.render('2', 0, NUM_COLOR)
+        num_3_surf = num_font.render('3', 0, NUM_COLOR)
+        num_4_surf = num_font.render('4', 0, NUM_COLOR)
+        num_5_surf = num_font.render('5', 0, NUM_COLOR)
+        num_6_surf = num_font.render('6', 0, NUM_COLOR)
+        num_7_surf = num_font.render('7', 0, NUM_COLOR)
+        num_8_surf = num_font.render('8', 0, NUM_COLOR)
+        num_9_surf = num_font.render('9', 0, NUM_COLOR)
 
-        #repeat for numbers 1-9
+        if self.selected:
+            pygame.draw.rect(screen, (255, 0, 0),
+                             pygame.Rect(self.col * SQUARE_SIZE, self.row *
+                                         SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE), 12)
+            self.selected = False
+
         if self.value == 1:
-            pass
-        elif self.value == 2:
-            pass
-        elif self.value == 3:
-            pass
-        elif self.value == 4:
-            pass
-        elif self.value == 5:
-            pass
-        elif self.value == 6:
-            pass
-        elif self.value == 7:
-            pass
-        elif self.value == 8:
-            pass
-        elif self.value == 9:
-            pass
+            # define the location
+            num_1_rect = num_1_surf.get_rect(
+                center=(self.col * SQUARE_SIZE + SQUARE_SIZE // 2, self.row *
+                        SQUARE_SIZE + SQUARE_SIZE // 2))
+
+            # blit chip onto the screen
+            self.screen.blit(num_1_surf, num_1_rect)
+
         # call draw value function
         # if cell is not 0, value is displayed
         # if cell has a 0 value, no value is displayed in cell
-        # cell is outlined red if it is currently selected
-        pass
+        # is outlined red if it is currently selected
+
+
+c1 = Cell(1, 1, 1, SQUARE_SIZE, SQUARE_SIZE, screen)
+c1.draw()
