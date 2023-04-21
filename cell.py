@@ -1,4 +1,5 @@
 # Alejandra
+
 import pygame
 from constants import *
 from board import Board
@@ -7,7 +8,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
 board = Board.draw(screen)
 num_font = pygame.font.Font(None, 400)
-
+screen = ' hey'
 
 class Cell:
     def __init__(self, value, row, col, screen):
@@ -30,7 +31,7 @@ class Cell:
     def draw(self):
         # draws cell w value inside it
         # defining the text and number values
-        num_font = pygame.font.Font(None, 400)
+
         num_1_surf = num_font.render('1', 0, NUM_COLOR)
         num_2_surf = num_font.render('2', 0, NUM_COLOR)
         num_3_surf = num_font.render('3', 0, NUM_COLOR)
@@ -62,3 +63,5 @@ class Cell:
         # is outlined red if it is currently selected
 
 
+c1 = Cell(1, 1, 1, screen)
+print(c1.value)
