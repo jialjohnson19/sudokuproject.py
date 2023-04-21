@@ -35,7 +35,7 @@ class SudokuGenerator:
         return True
 
     def valid_in_box(self, row_start, col_start, num):
-
+        pass
 
     def is_valid(self, row, col, num):
         pass
