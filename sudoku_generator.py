@@ -54,6 +54,8 @@ class SudokuGenerator:
         if not self.valid_in_box(box_row_start, box_col_start, num):
             return False
 
+        return True
+
     def fill_box(self, row_start, col_start):
          values = [i for i in range(1, self.row_length + 1)]
          random.shuffle(values)
@@ -106,7 +108,6 @@ class SudokuGenerator:
                  col = random.randint(0, self.row_length - 1)
 
              self.board[row][col] = 0
-             self.solution[row][col] = 0
 
 def generate_sudoku(size, removed):
     sudoku = SudokuGenerator(size, removed)
