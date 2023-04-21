@@ -85,8 +85,7 @@ class SudokuGenerator:
         return False
 
     def fill_values(self):
-        self.fill_diagonal()
-        self.fill_remaining()
+
 
     def remove_cells(self):
         pass
