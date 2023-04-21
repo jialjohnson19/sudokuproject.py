@@ -62,5 +62,3 @@ class Cell:
         # is outlined red if it is currently selected
 
 
-c1 = Cell(1, 1, 1, SQUARE_SIZE, SQUARE_SIZE, screen)
-c1.draw()
