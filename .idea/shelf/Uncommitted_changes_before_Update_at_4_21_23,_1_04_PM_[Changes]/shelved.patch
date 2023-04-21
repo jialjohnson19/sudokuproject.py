@@ -1,0 +1,17 @@
+Index: sudoku_generator.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Xiwen and Amaris\nclass SudokuGenerator:\n    def __init__(self, row_length, removed_cells):\n        self.row_length = row_length\n        self.removed_cells = removed_cells\n        self.board = [\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\n            [0, 0, 0, 0, 0, 0, 0, 0, 0],\n            [0, 0, 0, 0, 0, 0, 0, 0, 0]\n        ]\n\n    def get_board(self):\n        return self.board\n\n    def print_board(self):\n        for row in self.board:\n            print(row)\n\n    def valid_in_row(self, row, num):\n        for i in range(self.row_length):\n            if self.board[row][i] == num:\n                return False\n        return True\n\n    def valid_in_col(self, col, num):\n        for i in range(self.row_length):\n            if self.board[i][col] == num:\n                return False\n        return True\n\n    def valid_in_box(self, row_start, col_start, num):\n        pass\n\n    def is_valid(self, row, col, num):\n        pass\n\n    def fill_box(self, row_start, col_start):\n        pass\n\n    def fill_diagonal(self):\n        pass\n\n    def fill_remaining(self, row, col):\n        pass\n\n    def fill_values(self):\n        pass\n\n    def remove_cells(self):\n        pass\n\n    def generate_sudoku(size, removed):\n        pass\n\n#new1\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/sudoku_generator.py b/sudoku_generator.py
+--- a/sudoku_generator.py	(revision 105875a12df418b30b48ba2b6f8a6910eefa8728)
++++ b/sudoku_generator.py	(date 1682096330537)
+@@ -58,5 +58,5 @@
+     def generate_sudoku(size, removed):
+         pass
+ 
+-#new1
++
+ 
