@@ -6,7 +6,7 @@ pygame.init()
 pygame.display.set_caption("Sudoku")
 num_font = pygame.font.Font(None,400)
 
-screen = pygame.display.set_mode((WIDTH,HEIGHT))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
 
 class Board:
@@ -99,7 +99,7 @@ class Board:
     def sketch(self):
         pass
 
-    def place_numer(self,value):
+    def place_numer(self, value):
         pass
 
     def reset_to_original(self):

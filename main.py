@@ -4,11 +4,12 @@ from board import Board
 
 pygame.init()
 pygame.display.set_caption("Sudoku")
-num_font = pygame.font.Font(None,400)
+num_font = pygame.font.Font(None, 400)
 
 def draw_nums():
     num_1_surf = num_font.render('1', 0, NUM_COLOR)
     num_1_rect = num_1_surf.get_rect()
+
 def draw_lines(): #i believe this function has to go in board.py but works here for now
     for i in range(1, 3):
         pygame.draw.line(screen,
