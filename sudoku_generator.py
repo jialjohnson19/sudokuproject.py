@@ -3,7 +3,7 @@ class SudokuGenerator:
     def __init__(self, row_length, removed_cells):
         self.row_length = row_length
         self.removed_cells = removed_cells
-        self.box_length = math.sqrt(row_length)
+        self.box_length = int(math.sqrt(row_length))
         self.board = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -59,13 +59,10 @@ class SudokuGenerator:
          random.shuffle(values)
          for row in range(row_start, row_start + 3):
              for col in range(col_start, col_start + 3):
-                 print("row", row)
-                 print("col", col)
                  self.board[row][col] = values.pop()
 
     def fill_diagonal(self):
         for i in range(0, 7, 3):
-            print("i", i)
             self.fill_box(i, i)
 
     def fill_remaining(self, row, col):
