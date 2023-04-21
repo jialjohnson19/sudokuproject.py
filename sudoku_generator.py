@@ -35,10 +35,25 @@ class SudokuGenerator:
         return True
 
     def valid_in_box(self, row_start, col_start, num):
-        pass
+        for row in range(3):
+            for col in range(3):
+                if self.board[row_start + row][col_start + col] == num:
+                    return False
+        return True
 
     def is_valid(self, row, col, num):
-        pass
+        if not self.valid_in_row(row, num):
+            return False
+
+        if not self.valid_in_col(col, num):
+            return False
+
+        box_row_start = (row // 3) * 3
+        box_col_start = (col // 3) * 3
+        if not self.valid_in_box(box_row_start, box_col_start, num):
+            return False
+
+        return True
 
     def fill_box(self, row_start, col_start):
         pass
