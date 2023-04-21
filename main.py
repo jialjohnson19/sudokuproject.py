@@ -1,7 +1,6 @@
 import pygame, sys
 from constants import *
 from board import Board
-#updates
 pygame.init()
 pygame.display.set_caption("Sudoku")
 num_font = pygame.font.Font(None, 400)
@@ -10,6 +9,7 @@ font = pygame.font.Font(None, 40)
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 screen.fill(BG_COLOR)
 board = Board.draw(screen)
+
 
 while True: #window always showing in screen
     #event handler
@@ -22,9 +22,17 @@ while True: #window always showing in screen
             x, y = event.pos
             row = y // SQUARE_SIZE
             col = x // SQUARE_SIZE
-
-        if is_full(screen) == True:
+            print(row, col)
+            # Board.click(x, y) # needs adjusting
+            #if Board.available_cell(screen,board,row,col):
+                # Board.select(board,row,col)
+                #Cell.draw(value)
+                #pass
+        if event.type == pygame.K_KP_ENTER:
             pass
+
+
+
 
 
 
