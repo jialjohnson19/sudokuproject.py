@@ -198,5 +198,6 @@ while True:
         print("Invalid Input!")
 
     sudoku = SudokuGenerator(9, removed_cells)
+    sudoku.fill_values()
+    sudoku.remove_cells()
 
-#
