@@ -1,6 +1,7 @@
 import pygame, sys
 from constants import *
 from board import Board
+from cell import Cell
 
 pygame.init()
 pygame.display.set_caption("Sudoku")
@@ -11,6 +12,8 @@ screen = pygame.display.set_mode((WIDTH,HEIGHT))
 screen.fill(BG_COLOR)
 board = Board.draw(screen)
 
+c1 = Cell(1, 0, 0, screen)
+c1.draw()
 
 while True: #window always showing in screen
     #event handler
