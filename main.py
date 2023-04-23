@@ -46,9 +46,6 @@ def draw_game_over(screen):
     game_over_rect = game_over_surf.get_rect(center=(WIDTH // 2, HEIGHT // 2 - 100))
     screen.blit(game_over_surf, game_over_rect)
 
-    restart_surf = game_over_font.render('Press r to play again...', 0, LINE_COLOR)
-    restart_rect = restart_surf.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 100))
-    screen.blit(restart_surf, restart_rect)
 
 
 
