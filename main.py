@@ -133,28 +133,29 @@ if __name__ == '__main__':
     #draw_lines()
     # middle_cell = Cell('o', 1, 1, 300, 300)
     # middle_cell.draw(screen)
-    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
     # board.print_board()
-    board.draw()
+    Board.draw(screen)
     while True:  # window always showing in screen
         # event handler
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-            # mouse click or selection
-        if event.type == pygame.MOUSEBUTTONDOWN and easy_rectangle.collidepoint(event.pos):
-            removed_cells = 30
-        if event.type == pygame.MOUSEBUTTONDOWN and medium_rectangle.collidepoint(event.pos):
-            removed_cells = 40
-        if event.type == pygame.MOUSEBUTTONDOWN and hard_rectangle.collidepoint(event.pos):
-            removed_cells = 50
-        else:
-            print("Invalid Input!")
-        sudoku = SudokuGenerator(9, removed_cells)
-        sudoku.fill_values()
-        sudoku.remove_cells()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+                # mouse click or selection
+            if event.type == pygame.MOUSEBUTTONDOWN and easy_rectangle.collidepoint(event.pos):
+                removed_cells = 30
+            if event.type == pygame.MOUSEBUTTONDOWN and medium_rectangle.collidepoint(event.pos):
+                removed_cells = 40
+            if event.type == pygame.MOUSEBUTTONDOWN and hard_rectangle.collidepoint(event.pos):
+                removed_cells = 50
+            else:
+                print("Invalid Input!")
+            sudoku = SudokuGenerator(9, removed_cells)
+            sudoku.fill_values()
+            sudoku.remove_cells()
 
-        if event.type == pygame.K_KP_ENTER:
+            if event.type == pygame.K_KP_ENTER:
+                pass
 
             if event.key == pygame.K_RETURN:
                 if board.is_solved():
