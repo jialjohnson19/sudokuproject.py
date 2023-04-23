@@ -1,6 +1,7 @@
 import pygame, sys
 from constants import *
 from board import Board
+from sudoku_generator import *
 pygame.init()
 pygame.display.set_caption("Sudoku")
 num_font = pygame.font.Font(None, 400)
@@ -31,7 +32,7 @@ while True: #window always showing in screen
         if event.type == pygame.K_KP_ENTER:
             pass
 
-
+#
 
 
 
