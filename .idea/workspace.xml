@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="196b5b69-38fd-49f3-a511-d5d7160239b1" name="Changes" comment="game_start_screen" />
+    <list default="true" id="196b5b69-38fd-49f3-a511-d5d7160239b1" name="Changes" comment="xiwen edit 4">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,11 +17,11 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -43,7 +46,11 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RunManager">
@@ -78,6 +85,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681839519411</updated>
+      <workItem from="1682271852102" duration="200000" />
+      <workItem from="1682272112043" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="chanhge">
       <created>1681840569530</created>
@@ -121,36 +130,39 @@
       <option name="project" value="LOCAL" />
       <updated>1682109277656</updated>
     </task>
-    <task id="LOCAL-00007" summary="created game_start_screen">
-      <created>1682271210817</created>
+    <task id="LOCAL-00007" summary="xiwen edit 2">
+      <created>1682271489409</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1682271210817</updated>
+      <updated>1682271489409</updated>
     </task>
-    <task id="LOCAL-00008" summary="created game_start_screen">
-      <created>1682271299563</created>
+    <task id="LOCAL-00008" summary="xiwen edit 3">
+      <created>1682271694813</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1682271299563</updated>
+      <updated>1682271694813</updated>
     </task>
-    <task id="LOCAL-00009" summary="adjusted ordering">
-      <created>1682271381849</created>
+    <task id="LOCAL-00009" summary="xiwen edit 3">
+      <created>1682271816539</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1682271381849</updated>
+      <updated>1682271816539</updated>
     </task>
-    <task id="LOCAL-00010" summary="game_start_screen">
-      <created>1682271521886</created>
+    <task id="LOCAL-00010" summary="xiwen edit 4">
+      <created>1682271907260</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1682271521886</updated>
+      <updated>1682271907260</updated>
     </task>
     <option name="localTasksCounter" value="11" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -169,14 +181,14 @@
     <MESSAGE value="update" />
     <MESSAGE value="xiwen edited 2" />
     <MESSAGE value="xiwen edited 3" />
-    <MESSAGE value="created game_start_screen" />
-    <MESSAGE value="adjusted ordering" />
-    <MESSAGE value="game_start_screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="game_start_screen" />
+    <MESSAGE value="xiwen edit 2" />
+    <MESSAGE value="xiwen edit 3" />
+    <MESSAGE value="xiwen edit 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="xiwen edit 4" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/sudokuproject_py$board.coverage" NAME="board Coverage Results" MODIFIED="1682097323324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sudokuproject_py$sudoku_generator.coverage" NAME="sudoku_generator Coverage Results" MODIFIED="1682110501146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/sudokuproject_py$main.coverage" NAME="main Coverage Results" MODIFIED="1682271448493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sudokuproject_py$main.coverage" NAME="main Coverage Results" MODIFIED="1682108103655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sudokuproject_py$board.coverage" NAME="board Coverage Results" MODIFIED="1682097323324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
