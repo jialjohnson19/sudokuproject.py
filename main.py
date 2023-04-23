@@ -74,7 +74,8 @@ while True: #window always showing in screen
                 removed_cells = 40
             if diff == "hard":
                 removed_cells = 50
-
+            else:
+                print("Invalid Input!")
 
 
 
