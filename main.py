@@ -131,9 +131,9 @@ if __name__ == '__main__':
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     draw_game_start(screen)  # Calls function to draw start screen
+    difficulty = input("what difficulty do you want?")
 
     while True:
-        difficulty = input("what difficulty do you want?")
         if difficulty == "easy":
             removed_cells = 30
             break
