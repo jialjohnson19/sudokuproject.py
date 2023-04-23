@@ -63,11 +63,13 @@ def draw_game_start(screen):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if easy_rectangle.collidepoint(event.pos):
+                    board.difficulty == easy
                     return  # If the mouse is on the start button, we can return to main
                 elif medium_rectangle.collidepoint(event.pos):
                     # If the mouse is on the quit button, exit the program
-                    return
-                elif hard_rectangle.collidepoint(even.pos):
+                    board.difficulty == medium
+                elif hard_rectangle.collidepoint(event.pos):
+                    board.difficulty == hard
                     return
         pygame.display.update()
 
@@ -118,10 +120,8 @@ def draw_game_over(screen):
                 sys.exit()
         pygame.display.update()
 
-
 if __name__ == '__main__':
     game_over = False
-    chip = values
     winner = 0
 
     pygame.init()
@@ -134,10 +134,9 @@ if __name__ == '__main__':
     #draw_lines()
     # middle_cell = Cell('o', 1, 1, 300, 300)
     # middle_cell.draw(screen)
-    board = Board(9, 9, WIDTH, HEIGHT, screen)
+    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
     # board.print_board()
     board.draw()
-
 
 while True:  # window always showing in screen
     # event handler
