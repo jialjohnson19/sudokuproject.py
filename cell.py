@@ -3,11 +3,11 @@
 import pygame
 from constants import *
 
+
 pygame.init()
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
-board = Board.draw(screen)
 
 
 class Cell:
