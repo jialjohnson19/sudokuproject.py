@@ -137,16 +137,28 @@ while True:  # window always showing in screen
             # Cell.draw(value)
             # pass
         if event.type == pygame.K_KP_ENTER:
-            diff = input("what difficulty do you want?")
-            if diff == "easy":
-                removed_cells = 30
-            if diff == "medium":
-                removed_cells = 40
-            if diff == "hard":
-                removed_cells = 50
-            else:
-                print("Invalid Input!")
 
-    ##
+            if event.key == pygame.K_RETURN:
+                if board.is_solved():
+                    game_over = True
+                    draw_game_over(screen, "Congratulations, you won!")
+                else:
+                    draw_game_over(screen, "Sorry, that solution is incorrect.")
+
+            elif event.key == pygame.K_DELETE or event.key == pygame.K_BACKSPACE:
+                board.clear_selected_cell()
+
+            else:
+                key = event.unicode
+                if key.isdigit() and board.selected_cell:
+                    board.set_cell_value(int(key))
+
+            if game_over:
+                pygame.display.update()
+                pygame.time.delay(3000)
+                generate_new_game()
+                game_over = False
+                board.draw()
 
     pygame.display.update()  # to display and update things on the screen
+##
