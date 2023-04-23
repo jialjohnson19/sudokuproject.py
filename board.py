@@ -93,15 +93,12 @@ class Board:
     def clear(self):
         if self.board[row][col] == value:
             self.board[row][col] == 0
-        # if sketch == value then also return 0?
-
+        if cell.draw() != 0:
+            cell.draw() == 0
 
     def available_cell(self, board, row, col):
         if self.board[row][col] == 0:
             return self.board[row][col]
-
-    def sketch(self, value):
-        pass
 
     def place_number(self,value):
         self.board[row][col] = value
