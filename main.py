@@ -29,10 +29,17 @@ while True: #window always showing in screen
                 # Board.select(board,row,col)
                 #Cell.draw(value)
                 #pass
-        if event.type == pygame.K_KP_ENTER:
-            pass
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                diff = input("What difficulty do you want?(easy, medium, hard): ")
+                if diff == "easy":
+                   removed_cells = 30
+                if diff == "medium":
+                    removed_cells = 40
+                if diff == "hard":
+                    removed_cells = 50
 
-##
+
 
 
 
