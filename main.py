@@ -63,11 +63,14 @@ def draw_game_start(screen):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if easy_rectangle.collidepoint(event.pos):
+                    difficulty == "easy"
                     return  # If the mouse is on the start button, we can return to main
                 elif medium_rectangle.collidepoint(event.pos):
                     # If the mouse is on the quit button, exit the program
+                    difficulty == "medium"
                     return
                 elif hard_rectangle.collidepoint(even.pos):
+                    difficulty == "hard"
                     return
         pygame.display.update()
 
@@ -128,6 +131,24 @@ if __name__ == '__main__':
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     draw_game_start(screen)  # Calls function to draw start screen
+
+    while True:
+        difficulty = input("what difficulty do you want?")
+        if difficulty == "easy":
+            removed_cells = 30
+            break
+        if difficulty == "medium":
+            removed_cells = 40
+            break
+        if difficulty == "hard":
+            removed_cells = 50
+            break
+        else:
+            print("Invalid Input!")
+
+        sudoku = SudokuGenerator(9, removed_cells)
+        sudoku.fill_values()
+        sudoku.remove_cells()
 
     screen.fill(BG_COLOR)
     #draw_lines()
