@@ -79,8 +79,6 @@ def draw(self):  # draws the lines for the board
                              LINE_WIDTH)
 
 
-
-
 while True:  # window always showing in screen
     # event handler
     for event in pygame.event.get():
