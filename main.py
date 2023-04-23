@@ -78,11 +78,6 @@ def draw(self):  # draws the lines for the board
                              (SQUARE_SIZE * i, HEIGHT),
                              LINE_WIDTH)
 
-draw()
-
-c1 = Cell(1, 0, 0, screen)
-c1.set_sketched_value(5)
-c1.draw()
 
 while True:  # window always showing in screen
     # event handler
