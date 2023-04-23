@@ -9,7 +9,9 @@ font = pygame.font.Font(None, 40)
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
 board = Board.draw(screen)
+difficulty = "easy", "medium", "hard"
 winner = False
+
 def draw_game_start(screen):
     # Initialize title font
     start_title_font = pygame.font.Font(None, 100)
@@ -53,13 +55,55 @@ def draw_game_start(screen):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if easy_rectangle.collidepoint(event.pos):
+                    difficulty == "easy"
                     return  # If the mouse is on the start button, we can return to main
                 elif medium_rectangle.collidepoint(event.pos):
-                    # If the mouse is on the quit button, exit the program
+                    difficulty == "medium"
                     return
                 elif hard_rectangle.collidepoint(event.pos):
+                    difficulty == "hard"
                     return
         pygame.display.update()
+
+        pygame.display.update()
+if __name__ == '__main__':
+    game_over = False
+    winner = 0
+    pygame.init()
+    pygame.display.set_caption("Sudoku")
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    draw_game_start(screen)  # Calls function to draw start screen
+    screen.fill(BG_COLOR)
+    #draw_lines()
+    # middle_cell = Cell('o', 1, 1, 300, 300)
+    # middle_cell.draw(screen)
+    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
+    # board.print_board()
+    board.draw()
+    Board.draw(screen)
+    while True:  # window always showing in screen
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+                # mouse click or selection
+            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "easy":
+                removed_cells = 30
+                sudoku = SudokuGenerator(9, removed_cells)
+                sudoku.fill_values()
+                sudoku.remove_cells()
+            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "easy":
+                removed_cells = 40
+                sudoku = SudokuGenerator(9, removed_cells)
+                sudoku.fill_values()
+                sudoku.remove_cells()
+            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "hard":
+                removed_cells = 50
+                sudoku = SudokuGenerator(9, removed_cells)
+                sudoku.fill_values()
+                sudoku.remove_cells()
+        pygame.display.update()
+
 def draw_game_over(screen):
     game_over_font = pygame.font.Font(None, 200)
     screen.fill(BG_COLOR)
@@ -136,6 +180,8 @@ if __name__ == '__main__':
         sudoku.remove_cells()
 
         if event.type == pygame.K_KP_ENTER:
+            pass
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()

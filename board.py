@@ -1,6 +1,7 @@
 import pygame, sys
 from constants import *
 from cell import Cell
+from sudoku_generator import SudokuGenerator
 
 # new
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -14,9 +15,9 @@ class Board:
         self.width = width
         self.height = height
         self.screen = screen
-        self.difficulty = difficulty
+        self.difficulty = "easy", "medium", "hard"
         self.board = self.initialize_board()
-        self.cells = [[Cell(0, row, col, SQUARE_SIZE, SQUARE_SIZE) for col in
+        self.cells = [[Cell(0, row, col, SQUARE_SIZE) for col in
                        range(self.cols)] for row in range(self.rows)]
 
     def initialize_board(self):
@@ -104,18 +105,15 @@ class Board:
         if self.board[row][col] == 0:
             return self.board[row][col]
 
-    def sketch(self, value):
-        pass
-
     def place_number(self, value):
         self.board[row][col] = value
     
-    def difficulty_level(self,level):
-        if difficulty_level == easy: 
+    def difficulty_level(self,difficulty):
+        if self.board[difficulty] == easy:
+            pass
+        if self.board[difficulty] == medium:
             pass 
-        if difficulty_level == medium: 
-            pass 
-        if difficulty_level == hard: 
+        if self.board[difficulty] == hard:
             pass
 
     def reset_to_original(self):
