@@ -78,9 +78,7 @@ def draw(self):  # draws the lines for the board
                              (SQUARE_SIZE * i, HEIGHT),
                              LINE_WIDTH)
 
-draw()
-c1 = Cell(1, 1, 0, screen)
-c1.draw()
+
 
 
 while True:  # window always showing in screen
