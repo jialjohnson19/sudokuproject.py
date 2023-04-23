@@ -2,6 +2,7 @@ import pygame, sys
 from constants import *
 from board import Board
 from sudoku_generator import *
+
 pygame.init()
 pygame.display.set_caption("Sudoku")
 num_font = pygame.font.Font(None, 400)
@@ -65,45 +66,6 @@ def draw_game_start(screen):
                     return
         pygame.display.update()
 
-        pygame.display.update()
-if __name__ == '__main__':
-    game_over = False
-    winner = 0
-    pygame.init()
-    pygame.display.set_caption("Sudoku")
-    screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    draw_game_start(screen)  # Calls function to draw start screen
-    screen.fill(BG_COLOR)
-    #draw_lines()
-    # middle_cell = Cell('o', 1, 1, 300, 300)
-    # middle_cell.draw(screen)
-    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
-    # board.print_board()
-    board.draw()
-    Board.draw(screen)
-    while True:  # window always showing in screen
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-                # mouse click or selection
-            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "easy":
-                removed_cells = 30
-                sudoku = SudokuGenerator(9, removed_cells)
-                sudoku.fill_values()
-                sudoku.remove_cells()
-            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "easy":
-                removed_cells = 40
-                sudoku = SudokuGenerator(9, removed_cells)
-                sudoku.fill_values()
-                sudoku.remove_cells()
-            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "hard":
-                removed_cells = 50
-                sudoku = SudokuGenerator(9, removed_cells)
-                sudoku.fill_values()
-                sudoku.remove_cells()
-        pygame.display.update()
-
 def draw_game_over(screen):
     game_over_font = pygame.font.Font(None, 200)
     screen.fill(BG_COLOR)
@@ -146,6 +108,9 @@ def draw_game_over(screen):
             elif quit_rectangle.collidepoint(event.pos):  # If the mouse is on the quit button, exit the program
                 sys.exit()
         pygame.display.update()
+
+#start of MAIN
+
 if __name__ == '__main__':
     game_over = False
     winner = 0
@@ -162,42 +127,26 @@ if __name__ == '__main__':
     board.draw()
     Board.draw(screen)
     while True:  # window always showing in screen
-        # event handler
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-            # mouse click or selection
-        if event.type == pygame.MOUSEBUTTONDOWN and easy_rectangle.collidepoint(event.pos):
-            removed_cells = 30
-        if event.type == pygame.MOUSEBUTTONDOWN and medium_rectangle.collidepoint(event.pos):
-            removed_cells = 40
-        if event.type == pygame.MOUSEBUTTONDOWN and hard_rectangle.collidepoint(event.pos):
-            removed_cells = 50
-        else:
-            print("Invalid Input!")
-        sudoku = SudokuGenerator(9, removed_cells)
-        sudoku.fill_values()
-        sudoku.remove_cells()
-
-        if event.type == pygame.K_KP_ENTER:
-            pass
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
                 # mouse click or selection
-            if event.type == pygame.MOUSEBUTTONDOWN and easy_rectangle.collidepoint(event.pos):
+            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "easy":
                 removed_cells = 30
-            if event.type == pygame.MOUSEBUTTONDOWN and medium_rectangle.collidepoint(event.pos):
+                sudoku = SudokuGenerator(9, removed_cells)
+                sudoku.fill_values()
+                sudoku.remove_cells()
+            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "easy":
                 removed_cells = 40
-            if event.type == pygame.MOUSEBUTTONDOWN and hard_rectangle.collidepoint(event.pos):
+                sudoku = SudokuGenerator(9, removed_cells)
+                sudoku.fill_values()
+                sudoku.remove_cells()
+            if event.type == pygame.MOUSEBUTTONDOWN and difficulty == "hard":
                 removed_cells = 50
-            else:
-                print("Invalid Input!")
-            sudoku = SudokuGenerator(9, removed_cells)
-            sudoku.fill_values()
-            sudoku.remove_cells()
+                sudoku = SudokuGenerator(9, removed_cells)
+                sudoku.fill_values()
+                sudoku.remove_cells()
 
             if event.type == pygame.K_KP_ENTER:
                 pass
