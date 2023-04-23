@@ -2,6 +2,7 @@ import pygame, sys
 from constants import *
 from board import Board
 from sudoku_generator import *
+
 pygame.init()
 pygame.display.set_caption("Sudoku")
 num_font = pygame.font.Font(None, 400)
@@ -58,19 +59,17 @@ def draw_game_start(screen):
 
     while True:
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if easy_rectangle.collidepoint(event.pos):
-                    # Checks if mouse is on start button
-                    return  # If the mouse is on the start button, we can return to main
+                    #import sudoku geneator to randomize differe # of cells for easy, med, and hard
+                    pass
                 elif medium_rectangle.collidepoint(event.pos):
                     # If the mouse is on the quit button, exit the program
                     pass
                 elif hard_rectangle.collidepoint(even.pos):
                     pass
         pygame.display.update()
-        
+
 def draw_game_over(screen):
     game_over_font = pygame.font.Font(None, 200)
     screen.fill(BG_COLOR)
@@ -105,7 +104,7 @@ def draw_game_over(screen):
     game_over_rect = game_over_surf.get_rect(center=(WIDTH // 2, HEIGHT // 2 - 100))
     screen.blit(game_over_surf, game_over_rect)
 
-
+draw_game_start(screen)
 
 
 while True: #window always showing in screen
@@ -135,10 +134,3 @@ while True: #window always showing in screen
                 removed_cells = 50
             else:
                 print("Invalid Input!")
-
-
-
-
-
-
-    pygame.display.update() # to display and update things on the screen
