@@ -12,7 +12,7 @@ font = pygame.font.Font(None, 40)
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
-# board = Board.draw(screen)
+board = Board.draw(screen)
 
 def draw(self):  # draws the lines for the board
     # horizontal lines?
@@ -77,6 +77,10 @@ def draw(self):  # draws the lines for the board
                              (SQUARE_SIZE * i, 0),
                              (SQUARE_SIZE * i, HEIGHT),
                              LINE_WIDTH)
+
+
+c1 = Cell(1, 1, 0, screen)
+c1.draw()
 
 
 while True:  # window always showing in screen
