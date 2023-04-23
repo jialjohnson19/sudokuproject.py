@@ -109,6 +109,14 @@ class Board:
 
     def place_number(self, value):
         self.board[row][col] = value
+    
+    def difficulty_level(self,level):
+        if difficulty_level == easy: 
+            pass 
+        if difficulty_level == medium: 
+            pass 
+        if difficulty_level == hard: 
+            pass
 
     def reset_to_original(self):
         for row in range(9):

@@ -121,7 +121,6 @@ def draw_game_over(screen):
 
 if __name__ == '__main__':
     game_over = False
-    chip = values
     winner = 0
 
     pygame.init()
@@ -134,7 +133,7 @@ if __name__ == '__main__':
     #draw_lines()
     # middle_cell = Cell('o', 1, 1, 300, 300)
     # middle_cell.draw(screen)
-    board = Board(9, 9, WIDTH, HEIGHT, screen)
+    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
     # board.print_board()
     board.draw()
 
