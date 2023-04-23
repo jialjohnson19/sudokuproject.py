@@ -9,7 +9,6 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
 board = Board.draw(screen)
-num_font = pygame.font.Font(None, 400)
 
 
 class Cell:
@@ -34,6 +33,7 @@ class Cell:
     def draw(self):
         # draws cell w value inside it
         # defining the text and number values
+        num_font = pygame.font.Font(None, 90)
 
         num_1_surf = num_font.render('1', 0, NUM_COLOR)
         num_2_surf = num_font.render('2', 0, NUM_COLOR)
@@ -136,4 +136,3 @@ class Cell:
         # if cell is not 0, value is displayed
         # if cell has a 0 value, no value is displayed in cell
         # is outlined red if it is currently selected
-
