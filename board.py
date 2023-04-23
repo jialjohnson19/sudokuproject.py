@@ -1,5 +1,6 @@
 import pygame, sys
 from constants import *
+from cell import Cell
 
 # new
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
@@ -12,7 +13,11 @@ class Board:
         self.screen = screen
         self.difficult = difficulty
         self.board = self.initialize_board()
+        self.cells = [[Cell(0, row, col, SQUARE_SIZE, SQUARE_SIZE) for col in
+                       range(self.cols)] for row in range(self.rows)]
 
+    def initialize_board(self):
+        return [[0 for i in range(9)]for j in range (9)]
     def draw(self): #draws the lines for the board
         #horizontal lines?
             for i in range(1, 3):
@@ -88,6 +93,7 @@ class Board:
     def clear(self):
         pass
 
+
     def available_cell(self, board, row, col):
         return self.board[row][col] == 0
 
@@ -95,7 +101,8 @@ class Board:
         pass
 
     def place_number(self,value):
-        pass
+        if select(row, col):
+            pass
 
     def reset_to_original(self):
         for row in range(9):
