@@ -5,15 +5,6 @@ from board import Board
 from cell import Cell
 from constants import *
 
-pygame.init()
-pygame.display.set_caption("Sudoku")
-num_font = pygame.font.Font(None, 90)
-font = pygame.font.Font(None, 40)
-
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-screen.fill(BG_COLOR)
-
-board = Board.draw(screen) #board is drawn from here
 def draw_game_start(screen):
     # Initialize title font
     start_title_font = pygame.font.Font(None, 100)
@@ -63,6 +54,18 @@ def draw_game_start(screen):
                     # If the mouse is on the quit button, exit the program
                     sys.exit()
         pygame.display.update()
+
+
+pygame.init()
+pygame.display.set_caption("Sudoku")
+num_font = pygame.font.Font(None, 90)
+font = pygame.font.Font(None, 40)
+
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen.fill(BG_COLOR)
+
+board = Board.draw(screen) #board is drawn from here
+
 
 while True:  # window always showing in screen
     # event handler
