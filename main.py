@@ -2,6 +2,7 @@ import pygame, sys
 from constants import *
 from board import Board
 from sudoku_generator import *
+
 pygame.init()
 pygame.display.set_caption("Sudoku")
 num_font = pygame.font.Font(None, 400)
@@ -29,10 +30,17 @@ while True: #window always showing in screen
                 # Board.select(board,row,col)
                 #Cell.draw(value)
                 #pass
-        if event.type == pygame.K_KP_ENTER:
-            pass
-
-#
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                diff = input("What difficulty do you want? (easy, medium, hard): ")
+                if diff == "easy":
+                    removed_cells = 30
+                elif diff == "medium":
+                    removed_cells = 40
+                elif diff == "hard":
+                    removed_cells = 50
+                else:
+                    print("Invalid input!")
 
 
 
