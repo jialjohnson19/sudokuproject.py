@@ -1,4 +1,6 @@
 import math, random
+
+
 class SudokuGenerator:
     def __init__(self, row_length, removed_cells):
         self.row_length = row_length
@@ -24,20 +26,20 @@ class SudokuGenerator:
             print(row)
 
     def valid_in_row(self, row, num):
-         for i in range(self.row_length):
+        for i in range(self.row_length):
             if self.board[row][i] == num:
                 return False
-         return True
+        return True
 
     def valid_in_col(self, col, num):
         for i in range(self.row_length):
-           if self.board[i][col] == num:
-                 return False
+            if self.board[i][col] == num:
+                return False
         return True
 
     def valid_in_box(self, row_start, col_start, num):
         for row in range(3):
-             for col in range(3):
+            for col in range(3):
                 if self.board[row_start + row][col_start + col] == num:
                     return False
         return True
@@ -57,11 +59,11 @@ class SudokuGenerator:
         return True
 
     def fill_box(self, row_start, col_start):
-         values = [i for i in range(1, self.row_length + 1)]
-         random.shuffle(values)
-         for row in range(row_start, row_start + 3):
-             for col in range(col_start, col_start + 3):
-                 self.board[row][col] = values.pop()
+        values = [i for i in range(1, self.row_length + 1)]
+        random.shuffle(values)
+        for row in range(row_start, row_start + 3):
+            for col in range(col_start, col_start + 3):
+                self.board[row][col] = values.pop()
 
     def fill_diagonal(self):
         for i in range(0, 7, 3):
@@ -99,15 +101,16 @@ class SudokuGenerator:
         self.fill_remaining(0, self.box_length)
 
     def remove_cells(self):
-         for i in range(self.removed_cells):
-             row = random.randint(0, self.row_length - 1)
-             col = random.randint(0, self.row_length - 1)
+        for i in range(self.removed_cells):
+            row = random.randint(0, self.row_length - 1)
+            col = random.randint(0, self.row_length - 1)
 
-             while self.board[row][col] == 0:
-                 row = random.randint(0, self.row_length - 1)
-                 col = random.randint(0, self.row_length - 1)
+            while self.board[row][col] == 0:
+                row = random.randint(0, self.row_length - 1)
+                col = random.randint(0, self.row_length - 1)
 
-             self.board[row][col] = 0
+            self.board[row][col] = 0
+
 
 def generate_sudoku(size, removed):
     sudoku = SudokuGenerator(size, removed)

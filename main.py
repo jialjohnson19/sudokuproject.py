@@ -1,7 +1,6 @@
 import pygame, sys
 from constants import *
 from board import Board
-from sudoku_genetator import *
 pygame.init()
 pygame.display.set_caption("Sudoku")
 num_font = pygame.font.Font(None, 400)
