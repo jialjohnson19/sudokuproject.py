@@ -183,4 +183,19 @@ while True:  # window always showing in screen
             board.draw()
 
     pygame.display.update()  # to display and update things on the screen
-##
+
+while True:
+    diff = input("what difficulty do you want?")
+    if diff == "easy":
+        removed_cells = 30
+        break
+    if diff == "medium":
+        removed_cells = 40
+        break
+    if diff == "hard":
+        removed_cells = 50
+        break
+    else:
+        print("Invalid Input!")
+
+    soduku = SudokuGenerator(9, removed_cells)
