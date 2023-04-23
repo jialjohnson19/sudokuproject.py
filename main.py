@@ -119,6 +119,26 @@ def draw_game_over(screen):
         pygame.display.update()
 
 
+if __name__ == '__main__':
+    game_over = False
+    chip = values
+    winner = 0
+
+    pygame.init()
+    pygame.display.set_caption("Sudoku")
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
+    draw_game_start(screen)  # Calls function to draw start screen
+
+    screen.fill(BG_COLOR)
+    #draw_lines()
+    # middle_cell = Cell('o', 1, 1, 300, 300)
+    # middle_cell.draw(screen)
+    board = Board(9, 9, WIDTH, HEIGHT, screen)
+    # board.print_board()
+    board.draw()
+
+
 while True:  # window always showing in screen
     # event handler
     for event in pygame.event.get():
