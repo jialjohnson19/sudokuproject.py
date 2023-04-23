@@ -91,18 +91,20 @@ class Board:
         col = x // SQUARE_SIZE
         print(row, col)
     def clear(self):
-        pass
+        if self.board[row][col] == value:
+            self.board[row][col] == 0
+        # if sketch == value then also return 0?
 
 
     def available_cell(self, board, row, col):
-        return self.board[row][col] == 0
+        if self.board[row][col] == 0:
+            return self.board[row][col]
 
     def sketch(self,value):
         pass
 
     def place_number(self,value):
-        if select(row, col):
-            pass
+        self.board[row][col] = value
 
     def reset_to_original(self):
         for row in range(9):
