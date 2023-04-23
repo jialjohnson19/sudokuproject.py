@@ -143,3 +143,5 @@ class Cell:
         # if cell is not 0, value is displayed
         # if cell has a 0 value, no value is displayed in cell
         # is outlined red if it is currently selected
+
+
