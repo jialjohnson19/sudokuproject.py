@@ -198,5 +198,6 @@ while True:
     else:
         print("Invalid Input!")
 
-    soduku = SudokuGenerator(9, removed_cells)
+    sudoku = SudokuGenerator(9, removed_cells)
+
 #
