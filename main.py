@@ -128,7 +128,6 @@ if __name__ == '__main__':
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     draw_game_start(screen)  # Calls function to draw start screen
-    difficulty = input("what difficulty do you want?")
 
     screen.fill(BG_COLOR)
     #draw_lines()
