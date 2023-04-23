@@ -184,14 +184,14 @@ while True:  # window always showing in screen
     pygame.display.update()  # to display and update things on the screen
 
 while True:
-    diff = input("what difficulty do you want?")
-    if diff == "easy":
+    difficulty = input("what difficulty do you want?")
+    if difficulty == "easy":
         removed_cells = 30
         break
-    if diff == "medium":
+    if difficulty == "medium":
         removed_cells = 40
         break
-    if diff == "hard":
+    if difficulty == "hard":
         removed_cells = 50
         break
     else:
