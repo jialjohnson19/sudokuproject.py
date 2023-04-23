@@ -63,14 +63,11 @@ def draw_game_start(screen):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if easy_rectangle.collidepoint(event.pos):
-                    difficulty == "easy"
                     return  # If the mouse is on the start button, we can return to main
                 elif medium_rectangle.collidepoint(event.pos):
                     # If the mouse is on the quit button, exit the program
-                    difficulty == "medium"
                     return
-                elif hard_rectangle.collidepoint(even.pos):
-                    difficulty == "hard"
+                elif hard_rectangle.collidepoint(event.pos):
                     return
         pygame.display.update()
 
@@ -133,23 +130,6 @@ if __name__ == '__main__':
     draw_game_start(screen)  # Calls function to draw start screen
     difficulty = input("what difficulty do you want?")
 
-    while True:
-        if difficulty == "easy":
-            removed_cells = 30
-            break
-        if difficulty == "medium":
-            removed_cells = 40
-            break
-        if difficulty == "hard":
-            removed_cells = 50
-            break
-        else:
-            print("Invalid Input!")
-
-        sudoku = SudokuGenerator(9, removed_cells)
-        sudoku.fill_values()
-        sudoku.remove_cells()
-
     screen.fill(BG_COLOR)
     #draw_lines()
     # middle_cell = Cell('o', 1, 1, 300, 300)
@@ -157,25 +137,24 @@ if __name__ == '__main__':
     board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
     # board.print_board()
     board.draw()
-
-
-while True:  # window always showing in screen
-    # event handler
-    for event in pygame.event.get():
+    while True:  # window always showing in screen
+        # event handler
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
             # mouse click or selection
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            x, y = event.pos
-            row = y // SQUARE_SIZE
-            col = x // SQUARE_SIZE
-            print(row, col)
-            # Board.click(x, y) # needs adjusting
-            # if Board.available_cell(screen,board,row,col):
-            # Board.select(board,row,col)
-            # Cell.draw(value)
-            # pass
+        if event.type == pygame.MOUSEBUTTONDOWN and easy_rectangle.collidepoint(event.pos):
+            removed_cells = 30
+        if event.type == pygame.MOUSEBUTTONDOWN and medium_rectangle.collidepoint(event.pos):
+            removed_cells = 40
+        if event.type == pygame.MOUSEBUTTONDOWN and hard_rectangle.collidepoint(event.pos):
+            removed_cells = 50
+        else:
+            print("Invalid Input!")
+        sudoku = SudokuGenerator(9, removed_cells)
+        sudoku.fill_values()
+        sudoku.remove_cells()
+
         if event.type == pygame.K_KP_ENTER:
 
             if event.key == pygame.K_RETURN:
@@ -204,21 +183,4 @@ while True:  # window always showing in screen
 
     pygame.display.update()  # to display and update things on the screen
 
-while True:
-    difficulty = input("what difficulty do you want?")
-    if difficulty == "easy":
-        removed_cells = 30
-        break
-    if difficulty == "medium":
-        removed_cells = 40
-        break
-    if difficulty == "hard":
-        removed_cells = 50
-        break
-    else:
-        print("Invalid Input!")
-
-    sudoku = SudokuGenerator(9, removed_cells)
-    sudoku.fill_values()
-    sudoku.remove_cells()
 
