@@ -153,6 +153,8 @@ while True:  # window always showing in screen
                 if key.isdigit() and board.selected_cell:
                     board.set_cell_value(int(key))
 
+        game_over = True
+
         if game_over:
             pygame.display.update()
             pygame.time.delay(3000)
