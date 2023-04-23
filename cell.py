@@ -17,6 +17,7 @@ class Cell:
         # constructor for cell class
         # screen is a window from pycharm
         self.value = value
+        self.sketched_value = None
         self.row = row
         self.col = col
         self.screen = screen
@@ -27,7 +28,7 @@ class Cell:
         self.value = value
 
     def set_sketched_value(self, value):
-        # setter for this cell's sketched value
+        # store the sketched value
         self.sketched_value = value
 
     def draw(self):
@@ -51,7 +52,14 @@ class Cell:
                                          SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE), 12)
             self.selected = False
 
-        if self.value == 1:
+        if self.sketched_value is not None:
+            sketched_font = pygame.font.Font(None, 20)
+            sketched_surf = sketched_font.render(str(self.sketched_value), True, NUM_COLOR)
+            sketched_rect = sketched_surf.get_rect(
+                topleft=(self.col * SQUARE_SIZE + 5, self.row * SQUARE_SIZE + 5))
+            self.screen.blit(sketched_surf, sketched_rect)
+
+        elif self.value == 1:
             # define the location
             num_1_rect = num_1_surf.get_rect(
                 center=(self.col * SQUARE_SIZE + SQUARE_SIZE // 2, self.row *

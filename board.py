@@ -91,7 +91,7 @@ class Board:
     def available_cell(self, board, row, col):
         return self.board[row][col] == 0
 
-    def sketch(self,value):
+    def sketch(self, value):
         pass
 
     def place_number(self,value):

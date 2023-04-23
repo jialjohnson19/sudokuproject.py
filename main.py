@@ -15,6 +15,7 @@ screen.fill(BG_COLOR)
 board = Board.draw(screen)
 
 c1 = Cell(1, 0, 0, screen)
+c1.set_sketched_value(5)
 c1.draw()
 
 while True:  # window always showing in screen
