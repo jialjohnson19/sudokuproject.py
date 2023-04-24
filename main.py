@@ -56,7 +56,7 @@ def draw_game_start(screen):
                     difficulty = "easy"
                     removed_cells = 30
                     return
-                if hard_rectangle.collidepoint(event.pos):
+                if medium_rectangle.collidepoint(event.pos):
                     difficulty = "medium"
                     removed_cells = 40
                     return

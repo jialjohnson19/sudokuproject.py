@@ -125,7 +125,7 @@ class Board:
         screen.blit(quit_surface, quit_rectangle)
         screen.blit(reset_surface, reset_rectangle)
 
-         while True:
+        while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
