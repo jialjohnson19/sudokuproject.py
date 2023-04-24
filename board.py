@@ -20,8 +20,10 @@ class Board:
         self.cells = [[Cell(0, row, col, SQUARE_SIZE) for col in
                        range(self.cols)] for row in range(self.rows)]
 
+
     def initialize_board(self):
-        return [[0 for i in range(9)] for j in range(9)]
+        return generate_sudoku(9, removed)
+
 
     def draw(self):  # draws the lines for the board
         # horizontal lines
@@ -31,6 +33,7 @@ class Board:
                              (0, i * SQUARE_SIZE),
                              (WIDTH, i * SQUARE_SIZE),
                              LINE_WIDTH)
+
         for i in range(3, 4):
             pygame.draw.line(screen,
                              LINE_COLOR,

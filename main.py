@@ -51,19 +51,25 @@ def draw_game_start(screen):
     screen.blit(hard_surface, hard_rectangle)
     while True:
         for event in pygame.event.get():
+
             if event.type == pygame.MOUSEBUTTONDOWN:
+
                 if easy_rectangle.collidepoint(event.pos):
-                    removed_cells = 30
-                    generate_sudoku(81, removed_cells)
+                    difficulty = 30
+                    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
+                    board.draw(screen)
                     return
-                if medium_rectangle.collidepoint(event.pos):
-                    removed_cells = 40
-                    generate_sudoku(81, removed_cells)
+                elif medium_rectangle.collidepoint(event.pos):
+                    difficulty = 40
+                    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
+                    board.draw(screen)
                     return
-                if hard_rectangle.collidepoint(event.pos):
-                    removed_cells = 50
-                    generate_sudoku(81, removed_cells)
+                elif hard_rectangle.collidepoint(event.pos):
+                    difficulty = 50
+                    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
+                    board.draw(screen)
                     return
+
         pygame.display.update()
 
 def draw_game_over(screen):
@@ -109,7 +115,8 @@ def draw_game_over(screen):
             elif quit_rectangle.collidepoint(event.pos):  # If the mouse is on the quit button, exit the program
                 sys.exit()
         pygame.display.update()
-        
+
+
 def in_progress(screen):
     # this section draws out button menu at the bottom of the board
     button_font = pygame.font.Font(None, 70)
@@ -184,9 +191,6 @@ if __name__ == '__main__':
     board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
     Board.draw(screen) #draws the board screen
 
-    sudoku = SudokuGenerator(9, removed_cells)
-    sudoku.fill_values()
-    sudoku.remove_cells()
 
     while True:  # window always showing in screen
         for event in pygame.event.get():
