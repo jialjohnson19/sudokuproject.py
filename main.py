@@ -53,16 +53,16 @@ def draw_game_start(screen):
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if easy_rectangle.collidepoint(event.pos):
-                    difficulty = "easy"
                     removed_cells = 30
+                    generate_sudoku(81, removed_cells)
                     return
                 if medium_rectangle.collidepoint(event.pos):
-                    difficulty = "medium"
                     removed_cells = 40
+                    generate_sudoku(81, removed_cells)
                     return
                 if hard_rectangle.collidepoint(event.pos):
-                    difficulty = "hard"
                     removed_cells = 50
+                    generate_sudoku(81, removed_cells)
                     return
         pygame.display.update()
 
