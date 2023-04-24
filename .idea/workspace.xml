@@ -264,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682358376974</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="updated easy, medium, hard">
+      <created>1682359129826</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1682359129826</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +304,8 @@
     <MESSAGE value="indent edit on board" />
     <MESSAGE value="Board edited to fit the 3 buttons on the bottom of the screen" />
     <MESSAGE value="Board edited to correct game over screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Board edited to correct game over screen" />
+    <MESSAGE value="updated easy, medium, hard" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated easy, medium, hard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
