@@ -90,12 +90,6 @@ class Board:
     def select(self, row, col):
         return self.board[row][col]
 
-    def click(self, x, y):
-        x, y = event.pos
-        row = y // SQUARE_SIZE
-        col = x // SQUARE_SIZE
-        print(row, col)
-
     def clear(self):
         if self.board[row][col] == value:
             self.board[row][col] == 0
@@ -105,8 +99,9 @@ class Board:
         if self.board[row][col] == 0:
             return self.board[row][col]
 
-    def place_number(self, value):
+    def place_number(self, row, col, value):
         self.board[row][col] = value
+        self.update_cells()
     
     def difficulty_level(self,difficulty):
         if self.board[difficulty] == easy:
