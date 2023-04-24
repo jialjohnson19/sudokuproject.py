@@ -24,7 +24,7 @@ class Board:
         return [[0 for i in range(9)] for j in range(9)]
 
     def draw(self):  # draws the lines for the board
-        # horizontal lines?
+        # horizontal lines
         for i in range(1, 3):
             pygame.draw.line(screen,
                              LINE_COLOR,
@@ -55,38 +55,44 @@ class Board:
                              (0, i * SQUARE_SIZE),
                              (WIDTH, i * SQUARE_SIZE),
                              LINE_WIDTH)
-
+        for i in range(9, 10):
+            pygame.draw.line(screen,
+                             LINE_COLOR,
+                             (0, i * SQUARE_SIZE),
+                             (WIDTH, i * SQUARE_SIZE),
+                             LINE_WIDTH_BIG)
+            #vertical lines 
             for i in range(1, 3):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
                                  (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (SQUARE_SIZE * i, GAME_HEIGHT),
                                  LINE_WIDTH)
             for i in range(3, 4):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
                                  (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (SQUARE_SIZE * i, GAME_HEIGHT),
                                  LINE_WIDTH_BIG)
             for i in range(4, 6):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
                                  (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (SQUARE_SIZE * i, GAME_HEIGHT),
                                  LINE_WIDTH)
             for i in range(6, 7):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
                                  (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (SQUARE_SIZE * i, GAME_HEIGHT),
                                  LINE_WIDTH_BIG)
             for i in range(7, 9):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
                                  (SQUARE_SIZE * i, 0),
-                                 (SQUARE_SIZE * i, HEIGHT),
+                                 (SQUARE_SIZE * i, GAME_HEIGHT),
                                  LINE_WIDTH)
-                
+        
         # this section draws out button menu at the bottom of the board
         button_font = pygame.font.Font(None, 70)
         # Initialize buttons
@@ -115,11 +121,11 @@ class Board:
         reset_surface.blit(reset_text, (10, 10))
 
         # Initialize button rectangles
-        restart_rectangle = restart_surface.get_rect(center=(WIDTH // 2, HEIGHT - 15))
+        restart_rectangle = restart_surface.get_rect(center=(WIDTH // 2, HEIGHT - 40))
         quit_rectangle = restart_surface.get_rect(
-            center=(WIDTH // 2 + 300, HEIGHT - 15))
+            center=(WIDTH // 2 + 300, HEIGHT - 40))
         reset_rectangle = restart_surface.get_rect(
-            center=(WIDTH // 2 - 200, HEIGHT - 15))
+            center=(WIDTH // 2 - 200, HEIGHT - 40))
 
         screen.blit(restart_surface, restart_rectangle)
         screen.blit(quit_surface, quit_rectangle)
