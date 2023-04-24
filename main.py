@@ -9,7 +9,6 @@ num_font = pygame.font.Font(None, 400)
 font = pygame.font.Font(None, 40)
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
-board = Board.draw(screen)
 difficulty = "easy", "medium", "hard"
 winner = False
 
@@ -53,13 +52,16 @@ def draw_game_start(screen):
     while True:
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if difficulty == "easy":
+                if easy_rectangle.collidepoint(event.pos):
+                    difficulty = "easy"
                     removed_cells = 30
                     return
-                elif difficulty == "easy":
+                if hard_rectangle.collidepoint(event.pos):
+                    difficulty = "medium"
                     removed_cells = 40
                     return
-                elif difficulty == "hard":
+                if hard_rectangle.collidepoint(event.pos):
+                    difficulty = "hard"
                     removed_cells = 50
                     return
         pygame.display.update()
@@ -132,6 +134,7 @@ if __name__ == '__main__':
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN and not game_over: 
+                # should figure out how to call function to generate the sudoku board
                 selected_row = int(event.pos[1] / SQUARE_SIZE)
                 selected_col = int(event.pos[0] / SQUARE_SIZE)
                 print(selected_row, selected_col)

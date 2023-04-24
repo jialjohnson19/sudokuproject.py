@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="196b5b69-38fd-49f3-a511-d5d7160239b1" name="Changes" comment="updated the easy, med, and diff for board and in main">
+    <list default="true" id="196b5b69-38fd-49f3-a511-d5d7160239b1" name="Changes" comment="updated the functionality of ending the game and selecting rows and columns to input different values">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -88,6 +88,7 @@
       <updated>1681839519411</updated>
       <workItem from="1682271852102" duration="200000" />
       <workItem from="1682272112043" duration="374000" />
+      <workItem from="1682354795502" duration="421000" />
     </task>
     <task id="LOCAL-00001" summary="chanhge">
       <created>1681840569530</created>
@@ -222,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682279900156</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="updated the functionality of ending the game and selecting rows and columns to input different values">
+      <created>1682305094567</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1682305094567</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,14 +259,15 @@
     <MESSAGE value="game_start_screen update" />
     <MESSAGE value="small updates in main  and board" />
     <MESSAGE value="updated the easy, med, and diff for board and in main" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated the easy, med, and diff for board and in main" />
+    <MESSAGE value="updated the functionality of ending the game and selecting rows and columns to input different values" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated the functionality of ending the game and selecting rows and columns to input different values" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/board.py</url>
-          <line>137</line>
+          <line>192</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -268,6 +277,6 @@
     <SUITE FILE_PATH="coverage/sudokuproject_py$working.coverage" NAME="working Coverage Results" MODIFIED="1682304303534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sudokuproject_py$board.coverage" NAME="board Coverage Results" MODIFIED="1682097323324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sudokuproject_py$sudoku_generator.coverage" NAME="sudoku_generator Coverage Results" MODIFIED="1682276552393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/sudokuproject_py$main.coverage" NAME="main Coverage Results" MODIFIED="1682304031887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sudokuproject_py$main.coverage" NAME="main Coverage Results" MODIFIED="1682355171019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
