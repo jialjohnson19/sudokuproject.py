@@ -125,7 +125,7 @@ class Board:
         screen.blit(quit_surface, quit_rectangle)
         screen.blit(reset_surface, reset_rectangle)
 
-        while True:
+         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
@@ -133,10 +133,10 @@ class Board:
                     if restart_rectangle.collidepoint(event.pos):
                         # Checks if mouse is on restart button
                         return  # If the mouse is on the restart button, we can return to main
-                elif quit_rectangle.collidepoint(event.pos):  # If the mouse is on the quit button, exit the program
-                    sys.exit()
-                elif reset_rectangle.collidepoint(event.pos): # will clear out board to original
-                    board.reset_to_original()
+                    elif quit_rectangle.collidepoint(event.pos):  # If the mouse is on the quit button, exit the program
+                        sys.exit()
+                    elif reset_rectangle.collidepoint(event.pos):  # will clear out board to original
+                        self.Board.reset_to_original()
             pygame.display.update()
 
         pygame.display.update()
