@@ -22,7 +22,7 @@ class Board:
 
 
     def initialize_board(self):
-        return generate_sudoku(9, removed)
+        return generate_sudoku(9, removed)  #Changes
 
 
     def draw(self):  # draws the lines for the board
