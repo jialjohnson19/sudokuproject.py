@@ -86,7 +86,7 @@
       <updated>1681839519411</updated>
       <workItem from="1682271852102" duration="200000" />
       <workItem from="1682272112043" duration="374000" />
-      <workItem from="1682354795502" duration="3556000" />
+      <workItem from="1682354795502" duration="3972000" />
     </task>
     <task id="LOCAL-00001" summary="chanhge">
       <created>1681840569530</created>
@@ -256,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682358032045</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Board edited to correct game over screen">
+      <created>1682358376974</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1682358376974</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +303,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/board.py</url>
-          <line>151</line>
+          <line>137</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
