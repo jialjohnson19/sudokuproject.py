@@ -86,6 +86,61 @@ class Board:
                                  (SQUARE_SIZE * i, 0),
                                  (SQUARE_SIZE * i, HEIGHT),
                                  LINE_WIDTH)
+                
+        # this section draws out button menu at the bottom of the board
+        button_font = pygame.font.Font(None, 70)
+        # Initialize buttons
+        # Initialize text first
+        restart_text = button_font.render("RESTART", 0, (255, 255, 255))
+        quit_text = button_font.render("EXIT", 0, (255, 255, 255))
+        reset_text = button_font.render("RESET", 0, (255, 255, 255))
+
+        # Initialize button background color and text
+        # restart button
+        restart_surface = pygame.Surface((restart_text.get_size()[0] + 20,
+                                          restart_text.get_size()[1] + 20))
+        restart_surface.fill(LINE_COLOR)
+        restart_surface.blit(restart_text, (10, 10))
+
+        # quit button
+        quit_surface = pygame.Surface((quit_text.get_size()[0] + 20,
+                                       quit_text.get_size()[1] + 20))
+        quit_surface.fill(LINE_COLOR)
+        quit_surface.blit(quit_text, (10, 10))
+
+        # reset button
+        reset_surface = pygame.Surface((reset_text.get_size()[0] + 20,
+                                        reset_text.get_size()[1] + 20))
+        reset_surface.fill(LINE_COLOR)
+        reset_surface.blit(reset_text, (10, 10))
+
+        # Initialize button rectangles
+        restart_rectangle = restart_surface.get_rect(center=(WIDTH // 2, HEIGHT - 25))
+        quit_rectangle = restart_surface.get_rect(
+            center=(WIDTH // 2 + 300, HEIGHT - 25))
+        reset_rectangle = restart_surface.get_rect(
+            center=(WIDTH // 2 - 200, HEIGHT - 25))
+
+        screen.blit(restart_surface, restart_rectangle)
+        screen.blit(quit_surface, quit_rectangle)
+        screen.blit(reset_surface, reset_rectangle)
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if restart_rectangle.collidepoint(event.pos):
+                    # Checks if mouse is on restart button
+                    return  # If the mouse is on the restart button, we can return to main
+                elif quit_rectangle.collidepoint(event.pos):  # If the mouse is on the quit button, exit the program
+                    sys.exit()
+                elif reset_rectangle.collidepoint(event.pos): # will clear out board to original
+                    board.reset_to_original()
+            pygame.display.update()
+
+        pygame.display.update()
+
 
     def select(self, row, col):
         return self.board[row][col]
