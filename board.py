@@ -96,7 +96,7 @@ class Board:
 
 
     def select(self, row, col):
-        return self.board[row][col]
+        return generate_sudoku(9, removed)
 
     def clear(self):
         if self.board[row][col] == value:

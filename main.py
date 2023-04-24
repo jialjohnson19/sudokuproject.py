@@ -167,9 +167,7 @@ def in_progress(screen):
                     sys.exit()
                 elif reset_rectangle.collidepoint(event.pos):  # will clear out board to original
                     board.reset_to_original()
-        pygame.display.update()
-
-    pygame.display.update()        
+        pygame.display.update()       
 
 #start of MAIN
 
