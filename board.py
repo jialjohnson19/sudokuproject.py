@@ -140,35 +140,35 @@ class Board:
         return None
 
     def check_board(self):
-    # check rows
-    for row in range(self.rows):
-        row_vals = [val for val in self.board[row] if val != 0]
-        if len(row_vals) != len(set(row_vals)):
-            return False
-
-    # check columns
-    for col in range(self.cols):
-        col_vals = [self.board[row][col] for row in range(self.rows) if self.board[row][col] != 0]
-        if len(col_vals) != len(set(col_vals)):
-            return False
-
-    # check squares
-    for square_row in range(0, self.rows, 3):
-        for square_col in range(0, self.cols, 3):
-            square_vals = []
-            for row in range(square_row, square_row+3):
-                for col in range(square_col, square_col+3):
-                    if self.board[row][col] != 0:
-                        square_vals.append(self.board[row][col])
-            if len(square_vals) != len(set(square_vals)):
+        # check rows
+        for row in range(self.rows):
+            row_vals = [val for val in self.board[row] if val != 0]
+            if len(row_vals) != len(set(row_vals)):
                 return False
 
-    # check that all values are between 1 and 9
-    for row in range(self.rows):
+        # check columns
         for col in range(self.cols):
-            val = self.board[row][col]
-            if val < 1 or val > 9:
+            col_vals = [self.board[row][col] for row in range(self.rows) if self.board[row][col] != 0]
+            if len(col_vals) != len(set(col_vals)):
                 return False
 
-    return True
+        # check squares
+        for square_row in range(0, self.rows, 3):
+            for square_col in range(0, self.cols, 3):
+                square_vals = []
+                for row in range(square_row, square_row+3):
+                    for col in range(square_col, square_col+3):
+                        if self.board[row][col] != 0:
+                            square_vals.append(self.board[row][col])
+                if len(square_vals) != len(set(square_vals)):
+                    return False
+
+        # check that all values are between 1 and 9
+        for row in range(self.rows):
+            for col in range(self.cols):
+                val = self.board[row][col]
+                if val < 1 or val > 9:
+                    return False
+
+        return True
 
