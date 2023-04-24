@@ -130,9 +130,11 @@ class Board:
 
     def find_empty(self):
         # should find empty cell and return row and col tuple
-        for cell in board:
-            if board[row][col] == 0:
-                return (row, col)
+        for row in range(self.rows):
+            for col in range(self.cols):
+                if self.board[row][col] == 0:
+                    return (row, col)
+        return None
 
     def check_board(self):
         for row in range(9):  # checks that each value in each row is different
