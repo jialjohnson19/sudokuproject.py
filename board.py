@@ -174,10 +174,8 @@ class Board:
 
     def reset_to_original(self):
         for row in range(9):
-            if value != 0:
                 return 0
         for col in range(9):
-            if value != 0:
                 return 0
 
     def is_full(self):

@@ -128,7 +128,11 @@ if __name__ == '__main__':
     # middle_cell.draw(screen)
     board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
     Board.draw(screen) #draws the board screen
-    
+
+    sudoku = SudokuGenerator(9, removed_cells)
+    sudoku.fill_values()
+    sudoku.remove_cells()
+
     while True:  # window always showing in screen
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -152,28 +156,5 @@ if __name__ == '__main__':
                             game_over = True 
                             winner = 0 
                             draw_game_over(screen)
-                        
-            if event.type == pygame.K_KP_ENTER:
-                pass
-            #this should be game_in_progres screen with button selection
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    if board.is_solved():
-                        game_over = True
-                        draw_game_over(screen, "Congratulations, you won!")
-                    else:
-                        draw_game_over(screen, "Sorry, that solution is incorrect.")
-                elif event.key == pygame.K_DELETE or event.key == pygame.K_BACKSPACE:
-                    board.clear_selected_cell()
-                else:
-                    key = event.unicode
-                    if key.isdigit() and board.selected_cell:
-                        board.set_cell_value(int(key))
-
-            if game_over:
-                pygame.display.update()
-                pygame.time.delay(3000)
-                game_over = False
-                draw_game_over(screen)
 
         pygame.display.update()  # to display and update things on the screen
