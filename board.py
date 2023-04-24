@@ -115,11 +115,11 @@ class Board:
         reset_surface.blit(reset_text, (10, 10))
 
         # Initialize button rectangles
-        restart_rectangle = restart_surface.get_rect(center=(WIDTH // 2, HEIGHT - 25))
+        restart_rectangle = restart_surface.get_rect(center=(WIDTH // 2, HEIGHT - 15))
         quit_rectangle = restart_surface.get_rect(
-            center=(WIDTH // 2 + 300, HEIGHT - 25))
+            center=(WIDTH // 2 + 300, HEIGHT - 15))
         reset_rectangle = restart_surface.get_rect(
-            center=(WIDTH // 2 - 200, HEIGHT - 25))
+            center=(WIDTH // 2 - 200, HEIGHT - 15))
 
         screen.blit(restart_surface, restart_rectangle)
         screen.blit(quit_surface, quit_rectangle)
