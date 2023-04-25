@@ -108,13 +108,12 @@ class Board:
             # populate values in squares
 
     def select(self, row, col):
-        return self.cells[row][col] 
+        return self.cells[row][col]
 
     def user_selects(self, row, col):
         if self.cells[row][col].isSelected:
-            return True 
-        return False 
-            
+            return True
+        return False
 
     def click(self, x, y):
         if x < 9 and x >= 0:
@@ -147,8 +146,7 @@ class Board:
         return True
 
     def update_board(self):
-        self.board = [[Board(self.board[row][col], row, col, SQUARE_SIZE,
-                             SQUARE_SIZE) for col in range(self.cols)] for row in range(self.rows)]
+        self.board = [[Board(self.board[row][col], row, col, self.screen) for col in range(9)] for row in range(9)]
 
     def find_empty(self):
         for i in range(0, self.width):
@@ -191,6 +189,11 @@ class Board:
         return True
 
     def update_cells(self):
-        self.cells = [[Cell(self.board[i][j], i, j, self.height // self.rows,
-                            self.width // self.cols) for j in range(self.cols)] for i
-                      in range(self.rows)]
+        self.cells = [[Cell(self.board[i][j], i, j, self.screen) for j in range(9)] for i in range(9)]
+
+    def draw_numbers(self):
+        for row in self.cells:
+            for cell in row:
+                if cell.value:
+                    cell.draw_number()
+
