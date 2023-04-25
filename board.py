@@ -2,6 +2,7 @@ import pygame, sys
 from constants import *
 from cell import Cell
 from sudoku_generator import SudokuGenerator
+import sudoku_generator as sg
 
 # new
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -9,9 +10,9 @@ screen.fill(BG_COLOR)
 
 
 class Board:
-    def __init__(self, board, difficulty, rows=9, cols=9, width=810, height=900, removed_cells=0):
-        self.rows = rows
-        self.cols = cols
+    def __init__(self, difficulty, width=810, height=900, removed_cells=0):
+        self.rows = 9
+        self.cols = 9
         self.width = width
         self.height = height
         self.difficulty = difficulty
@@ -27,7 +28,7 @@ class Board:
         self.cells = [[Cell(self.board[row][col], row, col, screen) for col in range(9)] for row in range(9)]
 
     def initialize_board(self):
-        board = generate_sudoku(9, self.removed_cells)
+        board = sg.generate_sudoku(9, self.removed_cells)
         return board  # Changes
 
     def draw_board(self, screen):

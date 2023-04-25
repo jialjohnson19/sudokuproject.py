@@ -12,6 +12,12 @@ screen.fill(BG_COLOR)
 
 class Cell:
 
+    # def __init__(self, value, row, col, screen):
+    #     self.width = screen.width
+    #     self.height = screen.height
+    #     etc
+
+
     def __init__(self, value, row, col, width, height):
         # constructor for cell class
         # screen is a window from pycharm
