@@ -196,11 +196,7 @@ if __name__ == '__main__':
                 clicked_row = int(event.pos[1] / SQUARE_SIZE)
                 clicked_col = int(event.pos[0] / SQUARE_SIZE)
                 print(clicked_row, clicked_col)
-                if board.available_cell(clicked_row, clicked_col, value):
+                if board.available_cell(clicked_row, clicked_col):
                     board.print_board()
-                    board.place_number(clicked_row, clicked_col)
-
-            if event.type == pygame.KEYDOWN:
-                board.place_number(clicked_row, clicked_col, value)
-
-                pygame.display.update()  # to display and update things on the screen
+                    board.place_number(clicked_row, clicked_col, event.key)
+                    board.update_board()
