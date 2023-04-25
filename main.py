@@ -40,19 +40,23 @@ def draw_game_start(screen):
     hard_surface.blit(hard_text, (10, 10))
     # Initialize button rectangle
     easy_rectangle = easy_surface.get_rect(
-        center=(WIDTH // 2 - 200 , HEIGHT // 2 ))
+        center=(WIDTH // 2 - 200, HEIGHT // 2))
     medium_rectangle = medium_surface.get_rect(
-        center=(WIDTH // 2 , HEIGHT // 2 ))
+        center=(WIDTH // 2, HEIGHT // 2))
     hard_rectangle = medium_surface.get_rect(
         center=(WIDTH // 2 + 250, HEIGHT // 2))
     # Draw buttons
     screen.blit(easy_surface, easy_rectangle)
     screen.blit(medium_surface, medium_rectangle)
     screen.blit(hard_surface, hard_rectangle)
+    pygame.display.update()
+   
     while True:
         for event in pygame.event.get():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
+
+                screen.fill(BG_COLOR)
 
                 if easy_rectangle.collidepoint(event.pos):
                     difficulty = 'easy'
@@ -64,21 +68,32 @@ def draw_game_start(screen):
                     s_board.draw_board(screen)
                     s_board.draw(screen)
                     pygame.display.update()
-                    return
+
                 elif medium_rectangle.collidepoint(event.pos):
                     difficulty = 'medium'
                     removed_cells = 40
-                    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
-                    board.draw(screen)
-                    return
+                    sudoku = SudokuGenerator(9, removed_cells)
+                    sudoku.fill_values()
+                    sudoku.remove_cells()
+                    s_board = Board(sudoku.print_board(), difficulty)
+                    s_board.draw_board(screen)
+                    s_board.draw(screen)
+                    pygame.display.update()
+
                 elif hard_rectangle.collidepoint(event.pos):
                     difficulty = 'hard'
                     removed_cells = 50
-                    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
-                    board.draw(screen)
-                    return
+                    sudoku = SudokuGenerator(9, removed_cells)
+                    sudoku.fill_values()
+                    sudoku.remove_cells()
+                    s_board = Board(sudoku.print_board(), difficulty)
+                    s_board.draw_board(screen)
+                    s_board.draw(screen)
+                    pygame.display.update()
 
-        pygame.display.update()
+                in_progress(screen)
+
+    pygame.display.update()
 
     
 def draw_game_over(screen):
