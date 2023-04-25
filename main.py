@@ -211,48 +211,6 @@ if __name__ == '__main__':
             if event.type == pygame.QUIT:
                 sys.exit()
                 # Get the mouse position to insert number
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                flag1 = 1
-                pos = pygame.mouse.get_pos()
-            # Get the number to be inserted if key pressed
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    x -= 1
-                    flag1 = 1
-                if event.key == pygame.K_RIGHT:
-                    x += 1
-                    flag1 = 1
-                if event.key == pygame.K_UP:
-                    y -= 1
-                    flag1 = 1
-                if event.key == pygame.K_DOWN:
-                    y += 1
-                    flag1 = 1
-                if event.key == pygame.K_1:
-                    value = 1
-                if event.key == pygame.K_2:
-                    value = 2
-                if event.key == pygame.K_3:
-                    value = 3
-                if event.key == pygame.K_4:
-                    value = 4
-                if event.key == pygame.K_5:
-                    value = 5
-                if event.key == pygame.K_6:
-                    value = 6
-                if event.key == pygame.K_7:
-                    value = 7
-                if event.key == pygame.K_8:
-                    value = 8
-                if event.key == pygame.K_9:
-                    value = 9
-                if event.key == pygame.K_RETURN:
-                    flag2 = 1
-
-        #if event.type == pygame.KEYDOWN:
-                #if event.unicode.isdigit():
-                #value = int(event.unicode)
-
             if event.type == pygame.MOUSEBUTTONDOWN and not game_over:
                 clicked_row = int(event.pos[1] / SQUARE_SIZE)
                 clicked_col = int(event.pos[0] / SQUARE_SIZE)
