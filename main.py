@@ -55,23 +55,32 @@ def draw_game_start(screen):
             if event.type == pygame.MOUSEBUTTONDOWN:
 
                 if easy_rectangle.collidepoint(event.pos):
-                    difficulty = 30
-                    board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
-                    board.draw(screen)
+                    difficulty = 'easy'
+                    removed_cells = 30
+                    sudoku = SudokuGenerator(9, removed_cells)
+                    sudoku.fill_values()
+                    sudoku.remove_cells()
+                    s_board = Board(sudoku.print_board(), difficulty)
+                    s_board.draw_board(screen)
+                    s_board.draw(screen)
+                    pygame.display.update()
                     return
                 elif medium_rectangle.collidepoint(event.pos):
-                    difficulty = 40
+                    difficulty = 'medium'
+                    removed_cells = 40
                     board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
                     board.draw(screen)
                     return
                 elif hard_rectangle.collidepoint(event.pos):
-                    difficulty = 50
+                    difficulty = 'hard'
+                    removed_cells = 50
                     board = Board(9, 9, WIDTH, HEIGHT, screen, difficulty)
                     board.draw(screen)
                     return
 
         pygame.display.update()
 
+    
 def draw_game_over(screen):
     game_over_font = pygame.font.Font(None, 200)
     screen.fill(BG_COLOR)
