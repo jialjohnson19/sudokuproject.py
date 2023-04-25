@@ -54,6 +54,7 @@ class Cell:
             self.screen.blit(num_surf, num_rect)
 
         elif self.is_selected() and self.value > 0:
+            # creates outline on square
             pygame.draw.rect(screen, (255, 0, 0),
                              pygame.Rect(self.col * SQUARE_SIZE, self.row *
                                          SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE), 12)
@@ -76,6 +77,13 @@ class Cell:
         # if cell is not 0, value is displayed
         # if cell has a 0 value, no value is displayed in cell
         # is outlined red if it is currently selected
+
+    def draw_number(self):
+        font = pygame.font.Font(None, 36)
+        text = font.render(str(self.value), True, NUM_COLOR)
+        text_rect = text.get_rect(center=self.rect.center)
+        screen.blit(text, text_rect)
+
 
 
 
