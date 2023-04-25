@@ -19,11 +19,11 @@ class Cell:
         self.row = row
         self.col = col
         self.screen = screen
-        self.selected = False
+        self.isSelected = False
         self.event = None
 
     def is_selected(self):
-        return self.selected
+        return self.isSelected
 
     def get_value(self):
         return self.value

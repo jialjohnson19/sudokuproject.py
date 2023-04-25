@@ -1,7 +1,7 @@
 import pygame, sys
 from constants import *
-from board import Board
 from sudoku_generator import *
+from board import Board
 from cell import Cell
 
 pygame.init()
@@ -11,8 +11,6 @@ font = pygame.font.Font(None, 40)
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BG_COLOR)
 difficulty = "easy", "medium", "hard"
-winner = False
-
 
 def draw_game_start(screen):
     # Initialize title font
@@ -55,11 +53,9 @@ def draw_game_start(screen):
 
     while True:
         for event in pygame.event.get():
-
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global removed_cells
                 screen.fill(BG_COLOR)  # clears out beginner screen
-
                 # sets up sudoku board according to difficulty
                 if easy_rectangle.collidepoint(event.pos):
                     difficulty = 'easy'
@@ -70,18 +66,7 @@ def draw_game_start(screen):
                 elif hard_rectangle.collidepoint(event.pos):
                     difficulty = 'hard'
                     return difficulty
-
-                #sudoku = SudokuGenerator(9, removed_cells)  # initiates the randomly generated array
-                #sudoku.fill_values()
-                #sudoku.remove_cells()
-                #global board
-                #board = Board(sudoku.print_board(), difficulty)  # creates Board object out of SudokuGenerator
-                #board.draw_board(screen)  # prints numbers
-                #board.draw(screen)  # prints lines
-                #pygame.display.update()
-                #in_progress(screen)
-                #pygame.display.update()
-
+        pygame.display.update()
 
 def draw_game_over(screen):
     game_over_font = pygame.font.Font(None, 200)
@@ -180,15 +165,14 @@ def in_progress(screen):
                 elif reset_rectangle.collidepoint(event.pos):  # will clear out board to original
                     board.reset_to_original()
         pygame.display.update()
-
-    pygame.display.update()
-
+        return
 
 
 # start of MAIN
 
 if __name__ == '__main__':
     game_over = False
+    value = pygame.KEYDOWN
     winner = 0
 
     pygame.init()
@@ -208,20 +192,15 @@ if __name__ == '__main__':
     key = None
     while True:
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-                # Get the mouse position to insert number
-            if event.type == pygame.MOUSEBUTTONDOWN and not game_over:
+            if event.type == pygame.MOUSEBUTTONDOWN and game_over == False:
                 clicked_row = int(event.pos[1] / SQUARE_SIZE)
                 clicked_col = int(event.pos[0] / SQUARE_SIZE)
+                print(clicked_row, clicked_col)
+                if board.available_cell(clicked_row, clicked_col, value):
+                    board.print_board()
+                    board.place_number(clicked_row, clicked_col)
 
-                if board.available_cell(clicked_row, clicked_col):
-                    number = Cell(value, clicked_row, clicked_col)
-                    number.selected = True
-                    number.draw()
-                    board.draw_board(screen)
+            if event.type == pygame.KEYDOWN:
                 board.place_number(clicked_row, clicked_col, value)
 
-        board.draw(screen)
-
-    pygame.display.update()  # to display and update things on the screen
+                pygame.display.update()  # to display and update things on the screen

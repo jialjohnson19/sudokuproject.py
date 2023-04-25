@@ -108,9 +108,15 @@ class Board:
             # populate values in squares
 
     def select(self, row, col):
-        self.cells[row][col].selected()
+        return self.cells[row][col] 
 
-    def click(self, x):
+    def user_selects(self, row, col):
+        if self.cells[row][col].isSelected:
+            return True 
+        return False 
+            
+
+    def click(self, x, y):
         if x < 9 and x >= 0:
             if y < 9 and y >= 0:
                 return (x, y)
@@ -204,5 +210,3 @@ class Board:
         self.cells = [[Cell(self.board[i][j], i, j, self.height // self.rows,
                             self.width // self.cols) for j in range(self.cols)] for i
                       in range(self.rows)]
-
-
