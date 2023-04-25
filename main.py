@@ -66,7 +66,7 @@ def draw_game_start(screen):
                     sudoku.remove_cells()
                     s_board = Board(sudoku.print_board(), difficulty)
                     s_board.draw_board(screen)
-                    s_board.draw(screen)
+                    s_board.draw()
                     pygame.display.update()
 
                 elif medium_rectangle.collidepoint(event.pos):
@@ -77,7 +77,7 @@ def draw_game_start(screen):
                     sudoku.remove_cells()
                     s_board = Board(sudoku.print_board(), difficulty)
                     s_board.draw_board(screen)
-                    s_board.draw(screen)
+                    s_board.draw()
                     pygame.display.update()
 
                 elif hard_rectangle.collidepoint(event.pos):
@@ -88,7 +88,7 @@ def draw_game_start(screen):
                     sudoku.remove_cells()
                     s_board = Board(sudoku.print_board(), difficulty)
                     s_board.draw_board(screen)
-                    s_board.draw(screen)
+                    s_board.draw()
                     pygame.display.update()
 
                 in_progress(screen)

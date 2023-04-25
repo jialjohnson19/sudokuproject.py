@@ -18,15 +18,14 @@ class Cell:
     #     etc
 
 
-    def __init__(self, value, row, col, width, height):
+    def __init__(self, value, row, col,screen):
         # constructor for cell class
         # screen is a window from pycharm
         self.value = value
         self.sketched_value = None
         self.row = row
         self.col = col
-        self.width = width
-        self.height = height
+        self.screen = screen
         self.selected = False
 
     def set_cell_value(self, value):
