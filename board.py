@@ -9,20 +9,32 @@ screen.fill(BG_COLOR)
 
 
 class Board:
-    def __init__(self, rows, cols, width, height, screen, difficulty):
+        def __init__(self, board, difficulty, rows=9, cols=9, width=810, height=900, removed_cells=0):
         self.rows = rows
         self.cols = cols
         self.width = width
         self.height = height
-        self.screen = screen
         self.difficulty = difficulty
+        self.removed_cells = removed_cells
+        if self.difficulty == 'easy':
+            self.removed_cells = 30
+        elif self.difficulty == 'medium':
+            self.removed_cells = 40
+        elif self.difficulty == 'hard':
+            self.removed_cells = 50
         self.board = self.initialize_board()
-        self.cells = [[Cell(0, row, col, SQUARE_SIZE) for col in
-                       range(self.cols)] for row in range(self.rows)]
 
+        self.cells = [[Cell(self.board[row][col], row, col, screen) for col in range(9)] for row in range(9)]
 
     def initialize_board(self):
-        return generate_sudoku(9, removed)  #Changes
+        board = generate_sudoku(9, self.removed_cells)
+        return board  # Changes
+
+    def draw_board(self, screen):
+        for row in range(9):
+            for col in range(9):
+                self.cells[row][col].draw()
+                # Call the draw() method for each Cell object
 
 
     def draw(self):  # draws the lines for the board
