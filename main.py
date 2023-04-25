@@ -191,12 +191,17 @@ if __name__ == '__main__':
     key = None
     while True:
         for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+                game_over = True
             if event.type == pygame.MOUSEBUTTONDOWN and game_over == False:
                 clicked_row = int(event.pos[1] / SQUARE_SIZE)
                 clicked_col = int(event.pos[0] / SQUARE_SIZE)
                 print(clicked_row, clicked_col)
-                if event.type == pygame.KEYDOWN:
-                    if pygame.K_0 <= event.key <= pygame.K_9:
-                        value = event.key - pygame.K_0
-                        board.place_number(clicked_row, clicked_col, value)
-                        board.update_board()
+            if event.type == pygame.KEYDOWN:
+                if pygame.K_0 <= event.key <= pygame.K_9:
+                    value = event.key - pygame.K_0
+                    board.place_number(clicked_row, clicked_col, value)
+                    board.update_board()
+                    board.draw_numbers()  # call draw_numbers() method here
+                    pygame.display.update()
