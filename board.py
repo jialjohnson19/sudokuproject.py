@@ -9,7 +9,7 @@ screen.fill(BG_COLOR)
 
 
 class Board:
-        def __init__(self, board, difficulty, rows=9, cols=9, width=810, height=900, removed_cells=0):
+    def __init__(self, board, difficulty, rows=9, cols=9, width=810, height=900, removed_cells=0):
         self.rows = rows
         self.cols = cols
         self.width = width
