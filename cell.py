@@ -1,4 +1,4 @@
-# Alejandra
+# Alejandr
 
 import pygame
 from constants import *
