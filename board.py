@@ -1,8 +1,7 @@
 import pygame, sys
 from constants import *
 from cell import Cell
-from sudoku_generator import SudokuGenerator
-import sudoku_generator as sg
+from sudoku_generator import *
 
 # new
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -10,35 +9,33 @@ screen.fill(BG_COLOR)
 
 
 class Board:
-    def __init__(self, difficulty, width=810, height=900, removed_cells=0):
-        self.rows = 9
-        self.cols = 9
+    def __init__(self, width, height, screen, difficulty):
+        # self.rows = rows
+        # self.cols = cols
         self.width = width
         self.height = height
+        self.screen = screen
         self.difficulty = difficulty
-        self.removed_cells = removed_cells
+        # self.removed_cells = removed_cells
         if self.difficulty == 'easy':
-            self.removed_cells = 30
+            self.board = generate_sudoku(9, 30)
         elif self.difficulty == 'medium':
-            self.removed_cells = 40
+            self.board = generate_sudoku(9, 40)
         elif self.difficulty == 'hard':
-            self.removed_cells = 50
-        self.board = self.initialize_board()
+            self.board = generate_sudoku(9, 50)
+        self.cells = [[Cell(self.board[row][col], row, col, self.screen) for col in range(9)] for row in range(9)]
+        for row in self.cells:
+            for col in row:
+                if col.get_value == 0:
+                    col.is_selected()
 
-        self.cells = [[Cell(self.board[row][col], row, col, screen) for col in range(9)] for row in range(9)]
-
-    def initialize_board(self):
-        board = sg.generate_sudoku(9, self.removed_cells)
-        return board  # Changes
-
-    def draw_board(self, screen):
+    def draw_board(self):
         for row in range(9):
             for col in range(9):
                 self.cells[row][col].draw()
                 # Call the draw() method for each Cell object
 
-
-    def draw(self):  # draws the lines for the board
+    def draw(self, screen):  # draws the lines for the board
         # horizontal lines
         for i in range(1, 3):
             pygame.draw.line(screen,
@@ -77,7 +74,7 @@ class Board:
                              (0, i * SQUARE_SIZE),
                              (WIDTH, i * SQUARE_SIZE),
                              LINE_WIDTH_BIG)
-            #vertical lines 
+            # vertical lines
             for i in range(1, 3):
                 pygame.draw.line(screen,
                                  LINE_COLOR,
@@ -108,35 +105,54 @@ class Board:
                                  (SQUARE_SIZE * i, 0),
                                  (SQUARE_SIZE * i, GAME_HEIGHT),
                                  LINE_WIDTH)
-        pygame.display.update()
-
+            # populate values in squares
 
     def select(self, row, col):
-        return generate_sudoku(9, removed)
+        self.cells[row][col].selected()
+
+    def click(self, x):
+        if x < 9 and x >= 0:
+            if y < 9 and y >= 0:
+                return (x, y)
 
     def clear(self):
         if self.board[row][col] == value:
             self.board[row][col] = 0
         # if sketch == value then also return 0?
 
-    def available_cell(self, board, row, col):
-        if board[row][col] == 0:
-            return self.board[row][col]
+    def available_cell(self, row, col):
+        return self.cells[row][col] == 0
 
     def place_number(self, row, col, value):
-        self.board[row][col] = value
-        self.update_cells()
+        if value == pygame.K_1:
+            self.cells[row][col].set_cell_value(1)
+        if value == pygame.K_2:
+            self.cells[row][col].set_cell_value(2)
+        if value == pygame.K_3:
+            self.cells[row][col].set_cell_value(3)
+        if value == pygame.K_4:
+            self.cells[row][col].set_cell_value(4)
+        if value == pygame.K_5:
+            self.cells[row][col].set_cell_value(5)
+        if value == pygame.K_6:
+            self.cells[row][col].set_cell_value(6)
+        if value == pygame.K_7:
+            self.cells[row][col].set_cell_value(7)
+        if value == pygame.K_8:
+            self.cells[row][col].set_cell_value(8)
+        if value == pygame.K_9:
+            self.cells[row][col].set_cell_value(9)
 
     def reset_to_original(self):
         for row in range(9):
-                return 0
+            return 0
         for col in range(9):
-                return 0
+            return 0
 
     def is_full(self):
-        for i in range(self.rows):
-            for j in range(self.cols):
-                if self.board[i][j] == 0:
+        for i in self.cells:
+            for j in i:
+                if j.get_value() == 0:
                     return False
         return True
 
@@ -145,12 +161,11 @@ class Board:
                              SQUARE_SIZE) for col in range(self.cols)] for row in range(self.rows)]
 
     def find_empty(self):
-        # should find empty cell and return row and col tuple
-        for row in range(self.rows):
-            for col in range(self.cols):
-                if self.board[row][col] == 0:
-                    return (row, col)
-        return None
+        for i in range(0, self.width):
+            for j in range(0, self.height):
+                if board[i][j] == 0:
+                    return i, j
+        pass
 
     def check_board(self):
         # check rows
@@ -169,8 +184,8 @@ class Board:
         for square_row in range(0, self.rows, 3):
             for square_col in range(0, self.cols, 3):
                 square_vals = []
-                for row in range(square_row, square_row+3):
-                    for col in range(square_col, square_col+3):
+                for row in range(square_row, square_row + 3):
+                    for col in range(square_col, square_col + 3):
                         if self.board[row][col] != 0:
                             square_vals.append(self.board[row][col])
                 if len(square_vals) != len(set(square_vals)):
@@ -184,4 +199,10 @@ class Board:
                     return False
 
         return True
+
+    def update_cells(self):
+        self.cells = [[Cell(self.board[i][j], i, j, self.height // self.rows,
+                            self.width // self.cols) for j in range(self.cols)] for i
+                      in range(self.rows)]
+
 
