@@ -130,24 +130,8 @@ class Board:
         return self.cells[row][col] == 0
 
     def place_number(self, row, col, value):
-        if value == pygame.K_1:
-            self.cells[row][col].set_cell_value(1)
-        if value == pygame.K_2:
-            self.cells[row][col].set_cell_value(2)
-        if value == pygame.K_3:
-            self.cells[row][col].set_cell_value(3)
-        if value == pygame.K_4:
-            self.cells[row][col].set_cell_value(4)
-        if value == pygame.K_5:
-            self.cells[row][col].set_cell_value(5)
-        if value == pygame.K_6:
-            self.cells[row][col].set_cell_value(6)
-        if value == pygame.K_7:
-            self.cells[row][col].set_cell_value(7)
-        if value == pygame.K_8:
-            self.cells[row][col].set_cell_value(8)
-        if value == pygame.K_9:
-            self.cells[row][col].set_cell_value(9)
+        self.board[row][col] = value
+        self.update_cells()
 
     def reset_to_original(self):
         for row in range(9):
