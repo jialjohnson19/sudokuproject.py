@@ -1,89 +1,63 @@
-# Alejandra
-
 import pygame
 from constants import *
 
-pygame.init()
-
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-screen.fill(BG_COLOR)
-
 
 class Cell:
-
     def __init__(self, value, row, col, screen):
-        # constructor for cell class
-        # screen is a window from pycharm
+        self.sketched = None
         self.value = value
-        self.sketched_value = None
         self.row = row
         self.col = col
         self.screen = screen
-        self.isSelected = False
-        self.event = None
+        self.is_selected = False
 
     def is_selected(self):
-        return self.isSelected
+        return self.is_selected
+
+    def selected(self):
+        self.is_selected = True
 
     def get_value(self):
         return self.value
 
-    def selected(self):
-        self.selected = True
-
     def set_cell_value(self, value):
-        # setter for this cell's value
         self.value = value
 
     def set_sketched_value(self, value):
-        # store the sketched value
-        self.sketched_value = value
+        self.sketched = value
 
-    def draw(self):
-
-        # draws cell w value inside it
-        # defining the text and number values
+    def draw(self): # draws numbers in the cell
         num_font = pygame.font.Font(None, 90)
-        num_surf = num_font.render(str(self.value), 0, NUM_COLOR)
-
+        num_surf = num_font.render(str(self.value), 0, LINE_COLOR)
+        if self.value > 0 and self.is_selected:
+            num_surf = num_font.render(str(self.value), 0, NUM_COLOR)
+            num_rect = num_surf.get_rect(
+                center=(self.col * SQUARE_SIZE + SQUARE_SIZE // 2, self.row *
+                        SQUARE_SIZE + SQUARE_SIZE // 2))
+            self.screen.blit(num_surf, num_rect)
+            pygame.display.update()
         if self.value > 0:
             num_rect = num_surf.get_rect(
                 center=(self.col * SQUARE_SIZE + SQUARE_SIZE // 2, self.row *
                         SQUARE_SIZE + SQUARE_SIZE // 2))
-
             self.screen.blit(num_surf, num_rect)
 
-        elif self.is_selected() and self.value > 0:
-            # creates outline on square
-            pygame.draw.rect(screen, (255, 0, 0),
-                             pygame.Rect(self.col * SQUARE_SIZE, self.row *
-                                         SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE), 12)
-            self.selected = False
+    def highlight_cell(self):
+        # upper line
+        pygame.draw.line(self.screen, RED, (self.col * SQUARE_SIZE, self.row * SQUARE_SIZE),
+                         ((self.col + 1) * SQUARE_SIZE, self.row * SQUARE_SIZE), LINE_WIDTH)
 
-            num_rect = num_surf.get_rect(
-                center=(self.col * SQUARE_SIZE + SQUARE_SIZE // 2, self.row *
-                        SQUARE_SIZE + SQUARE_SIZE // 2))
+        # line on bottom
+        pygame.draw.line(self.screen, RED, (self.col * SQUARE_SIZE, (self.row + 1) * SQUARE_SIZE),
+                         ((self.col + 1) * SQUARE_SIZE, (self.row + 1) * SQUARE_SIZE), LINE_WIDTH)
 
-            self.screen.blit(num_surf, num_rect)
+        # left line
+        pygame.draw.line(self.screen, RED, (self.col * SQUARE_SIZE, self.row * SQUARE_SIZE),
+                         (self.col * SQUARE_SIZE, (self.row + 1) * SQUARE_SIZE), LINE_WIDTH)
 
-        if self.sketched_value is not None:
-            sketched_font = pygame.font.Font(None, 20)
-            sketched_surf = sketched_font.render(str(self.sketched_value), True, NUM_COLOR)
-            sketched_rect = sketched_surf.get_rect(
-                topleft=(self.col * SQUARE_SIZE + 5, self.row * SQUARE_SIZE + 5))
-            self.screen.blit(sketched_surf, sketched_rect)
-
-        # call draw value function
-        # if cell is not 0, value is displayed
-        # if cell has a 0 value, no value is displayed in cell
-        # is outlined red if it is currently selected
-
-    def draw_number(self):
-        font = pygame.font.Font(None, 36)
-        text = font.render(str(self.value), True, NUM_COLOR)
-        text_rect = text.get_rect(center=self.rect.center)
-        screen.blit(text, text_rect)
-
+        # right line
+        pygame.draw.line(self.screen, RED, ((self.col + 1) * SQUARE_SIZE, self.row * SQUARE_SIZE),
+                         ((self.col + 1) * SQUARE_SIZE, (self.row + 1) * SQUARE_SIZE), LINE_WIDTH)
 
 
 
