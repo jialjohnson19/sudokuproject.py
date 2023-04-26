@@ -1,39 +1,29 @@
-import pygame, sys
+import pygame
 from constants import *
 from cell import Cell
 from sudoku_generator import *
 
-# new
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-screen.fill(BG_COLOR)
-
 
 class Board:
     def __init__(self, width, height, screen, difficulty):
-        # self.rows = rows
-        # self.cols = cols
         self.width = width
         self.height = height
         self.screen = screen
         self.difficulty = difficulty
-        # self.removed_cells = removed_cells
-        if self.difficulty == 'easy':
+        # setting up different difficulties
+        # 30, 40, 50 represent removed cells
+        if difficulty == 'easy':
             self.board = generate_sudoku(9, 30)
-        elif self.difficulty == 'medium':
+        elif difficulty == 'medium':
             self.board = generate_sudoku(9, 40)
-        elif self.difficulty == 'hard':
+        elif difficulty == 'hard':
             self.board = generate_sudoku(9, 50)
+
         self.cells = [[Cell(self.board[row][col], row, col, self.screen) for col in range(9)] for row in range(9)]
         for row in self.cells:
             for col in row:
                 if col.get_value == 0:
-                    col.is_selected()
-
-    def draw_board(self):
-        for row in range(9):
-            for col in range(9):
-                self.cells[row][col].draw()
-                # Call the draw() method for each Cell object
+                    col.selected()
 
     def draw(self, screen):  # draws the lines for the board
         # horizontal lines
@@ -105,95 +95,118 @@ class Board:
                                  (SQUARE_SIZE * i, 0),
                                  (SQUARE_SIZE * i, GAME_HEIGHT),
                                  LINE_WIDTH)
-            # populate values in squares
+
+        # calls cell object to draw
+        for i in range(9):
+            for j in range(9):
+                self.cells[i][j].draw()
 
     def select(self, row, col):
-        return self.cells[row][col]
-
-    def user_selects(self, row, col):
-        if self.cells[row][col].isSelected:
-            return True
-        return False
+        self.cells[row][col].highlight_cell()
 
     def click(self, x, y):
-        if x < 9 and x >= 0:
-            if y < 9 and y >= 0:
-                return (x, y)
+        if 0 <= x < 9:
+            if 0 <= y < 9:
+                return x, y
 
-    def clear(self):
-        if self.board[row][col] == value:
-            self.board[row][col] = 0
-        # if sketch == value then also return 0?
+    def clear(self, row, col):  # clears cell value when delete is pressed
+        self.cells[row][col].set_cell_value(0)
 
-    def available_cell(self, row, col):
-        return self.cells[row][col] == 0
+    def place_value(self, value, row, col):
+        # sets cell value to what user inputted and then user presses enter key
+        if value == pygame.K_1:
+            self.cells[row][col].set_cell_value(1)
+            self.cells[row][col].selected()
+        if value == pygame.K_2:
+            self.cells[row][col].set_cell_value(2)
+            self.cells[row][col].selected()
+        if value == pygame.K_3:
+            self.cells[row][col].set_cell_value(3)
+            self.cells[row][col].selected()
+        if value == pygame.K_4:
+            self.cells[row][col].set_cell_value(4)
+            self.cells[row][col].selected()
+        if value == pygame.K_5:
+            self.cells[row][col].set_cell_value(5)
+            self.cells[row][col].selected()
+        if value == pygame.K_6:
+            self.cells[row][col].set_cell_value(6)
+            self.cells[row][col].selected()
+        if value == pygame.K_7:
+            self.cells[row][col].set_cell_value(7)
+            self.cells[row][col].selected()
+        if value == pygame.K_8:
+            self.cells[row][col].set_cell_value(8)
+            self.cells[row][col].selected()
+        if value == pygame.K_9:
+            self.cells[row][col].set_cell_value(9)
+            self.cells[row][col].selected()
 
-    def place_number(self, row, col, value):
-        self.board[row][col] = value
-        self.update_cells()
 
-    def reset_to_original(self):
-        for row in range(9):
-            return 0
-        for col in range(9):
-            return 0
-
-    def is_full(self):
+    def board_full(self):
         for i in self.cells:
             for j in i:
                 if j.get_value() == 0:
-                    return False
+                    return False  # if there is any blank value board is not full
         return True
 
-    def update_board(self):
-        self.board = [[Board(self.board[row][col], row, col, self.screen) for col in range(9)] for row in range(9)]
-
-    def find_empty(self):
-        for i in range(0, self.width):
-            for j in range(0, self.height):
+    def find_cleared(self):
+        for i in range(self.width):
+            for j in range(self.height):
                 if board[i][j] == 0:
-                    return i, j
+                    return i, j  # returns coordinates of where the cell is empty
         pass
 
     def check_board(self):
-        # check rows
-        for row in range(self.rows):
-            row_vals = [val for val in self.board[row] if val != 0]
-            if len(row_vals) != len(set(row_vals)):
+        for i in range(9):
+            if not self.is_editable(i, i):
                 return False
-
-        # check columns
-        for col in range(self.cols):
-            col_vals = [self.board[row][col] for row in range(self.rows) if self.board[row][col] != 0]
-            if len(col_vals) != len(set(col_vals)):
-                return False
-
-        # check squares
-        for square_row in range(0, self.rows, 3):
-            for square_col in range(0, self.cols, 3):
-                square_vals = []
-                for row in range(square_row, square_row + 3):
-                    for col in range(square_col, square_col + 3):
-                        if self.board[row][col] != 0:
-                            square_vals.append(self.board[row][col])
-                if len(square_vals) != len(set(square_vals)):
-                    return False
-
-        # check that all values are between 1 and 9
-        for row in range(self.rows):
-            for col in range(self.cols):
-                val = self.board[row][col]
-                if val < 1 or val > 9:
-                    return False
-
         return True
 
-    def update_cells(self):
-        self.cells = [[Cell(self.board[i][j], i, j, self.screen) for j in range(9)] for i in range(9)]
+    def editable(self, row, col):
+        if self.cells[row][col].is_selected:
+            return True
+        return False
 
-    def draw_numbers(self):
-        for row in self.cells:
-            for cell in row:
-                if cell.value:
-                    cell.draw_number()
+    def editable_row(self, row):
+        numbers = []
+        for i in range(9):
+            if self.cells[row][i].get_value() in numbers or self.cells[row][i].get_value == 0:
+                return False
+            else:
+                numbers.append(self.cells[row][i].get_value())
+        return True
+
+    def editable_col(self, col):
+        numbers = []
+        for i in range(9):
+            if self.cells[i][col].get_value() in numbers or self.cells[i][col].get_value == 0:
+                return False
+            else:
+                numbers.append(self.cells[i][col].get_value())
+        return True
+
+    def editable_box(self, row_start, col_start):
+        numbers = []
+        for i in range(3):
+            for j in range(3):
+                if self.cells[row_start + i][col_start + j].get_value() in numbers or \
+                        self.cells[row_start + i][col_start + j].get_value == 0:
+                    return False
+                else:
+                    numbers.append(self.cells[row_start + i][col_start + j].get_value())
+        return True
+
+    def is_editable(self, row, col):
+        row_start = row // 3
+        row_start *= 3
+        col_start = col // 3
+        col_start *= 3
+        if self.editable_box(row_start, col_start):
+            if self.editable_row(row):
+                if self.editable_col(col):
+                    return True
+        return False
+
+
 
